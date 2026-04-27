@@ -1,0 +1,431 @@
+/* AXINOVA Page Agent UI Styles */
+
+/* Page Agent 컨테이너 */
+.page-agent-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10000;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* 플로팅 버튼 */
+.page-agent-fab {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7A1F1F 0%, #A02828 100%);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 12px rgba(122, 31, 31, 0.4);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.page-agent-fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(122, 31, 31, 0.6);
+}
+
+.page-agent-fab.active {
+    background: linear-gradient(135deg, #A02828 0%, #7A1F1F 100%);
+}
+
+/* 뱃지 (알림) */
+.page-agent-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #FF4444;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* 패널 */
+.page-agent-panel {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 400px;
+    max-width: calc(100vw - 40px);
+    height: 600px;
+    max-height: calc(100vh - 120px);
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    animation: slideUp 0.3s ease;
+}
+
+.page-agent-panel.show {
+    display: flex;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 헤더 */
+.page-agent-header {
+    padding: 20px;
+    background: linear-gradient(135deg, #7A1F1F 0%, #A02828 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.page-agent-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.page-agent-header p {
+    margin: 5px 0 0 0;
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+.page-agent-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    border-radius: 4px;
+}
+
+.page-agent-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* 메시지 영역 */
+.page-agent-messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background: #F8F9FA;
+}
+
+.page-agent-message {
+    margin-bottom: 16px;
+    display: flex;
+    gap: 10px;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.page-agent-message.user {
+    flex-direction: row-reverse;
+}
+
+.page-agent-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #7A1F1F;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.page-agent-message.user .page-agent-avatar {
+    background: #4CAF50;
+}
+
+.page-agent-bubble {
+    max-width: 70%;
+    padding: 12px 16px;
+    border-radius: 16px;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.page-agent-message.user .page-agent-bubble {
+    background: #7A1F1F;
+    color: white;
+}
+
+/* 입력 영역 */
+.page-agent-input-area {
+    padding: 16px;
+    background: white;
+    border-top: 1px solid #E0E0E0;
+}
+
+.page-agent-input-wrapper {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+.page-agent-input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 2px solid #E0E0E0;
+    border-radius: 24px;
+    font-size: 14px;
+    font-family: 'Noto Sans KR', sans-serif;
+    resize: none;
+    max-height: 100px;
+    transition: all 0.2s ease;
+}
+
+.page-agent-input:focus {
+    outline: none;
+    border-color: #7A1F1F;
+}
+
+.page-agent-send {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #7A1F1F;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.page-agent-send:hover:not(:disabled) {
+    background: #A02828;
+    transform: scale(1.05);
+}
+
+.page-agent-send:disabled {
+    background: #CCCCCC;
+    cursor: not-allowed;
+}
+
+/* 로딩 인디케이터 */
+.page-agent-loading {
+    display: flex;
+    gap: 6px;
+    padding: 12px 16px;
+}
+
+.page-agent-loading span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #7A1F1F;
+    animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.page-agent-loading span:nth-child(1) {
+    animation-delay: -0.32s;
+}
+
+.page-agent-loading span:nth-child(2) {
+    animation-delay: -0.16s;
+}
+
+@keyframes bounce {
+    0%, 80%, 100% {
+        transform: scale(0);
+    }
+    40% {
+        transform: scale(1);
+    }
+}
+
+/* 예시 명령어 칩 */
+.page-agent-examples {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.page-agent-example-chip {
+    padding: 8px 12px;
+    background: white;
+    border: 1px solid #E0E0E0;
+    border-radius: 16px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.page-agent-example-chip:hover {
+    background: #7A1F1F;
+    color: white;
+    border-color: #7A1F1F;
+}
+
+/* 환영 메시지 */
+.page-agent-welcome {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+}
+
+.page-agent-welcome h4 {
+    margin: 0 0 10px 0;
+    color: #7A1F1F;
+    font-size: 18px;
+}
+
+.page-agent-welcome p {
+    margin: 0 0 20px 0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* 모바일 최적화 */
+@media (max-width: 768px) {
+    .page-agent-panel {
+        width: 100%;
+        height: 70vh;
+        bottom: 0;
+        right: 0;
+        border-radius: 20px 20px 0 0;
+        max-width: 100%;
+    }
+    
+    .page-agent-container {
+        bottom: 10px;
+        right: 10px;
+    }
+    
+    .page-agent-fab {
+        width: 56px;
+        height: 56px;
+    }
+    
+    .page-agent-input {
+        font-size: 16px; /* iOS 자동 줌 방지 */
+    }
+    
+    .page-agent-bubble {
+        max-width: 80%;
+    }
+}
+
+/* 접근성 */
+.page-agent-container *:focus-visible {
+    outline: 2px solid #7A1F1F;
+    outline-offset: 2px;
+}
+
+/* 확인 다이얼로그 */
+.page-agent-confirm {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 10001;
+}
+
+.page-agent-confirm.show {
+    display: flex;
+}
+
+.page-agent-confirm-dialog {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.page-agent-confirm-dialog h4 {
+    margin: 0 0 12px 0;
+    color: #7A1F1F;
+}
+
+.page-agent-confirm-dialog p {
+    margin: 0 0 20px 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+}
+
+.page-agent-confirm-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.page-agent-confirm-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.page-agent-confirm-btn.cancel {
+    background: #E0E0E0;
+    color: #333;
+}
+
+.page-agent-confirm-btn.cancel:hover {
+    background: #D0D0D0;
+}
+
+.page-agent-confirm-btn.confirm {
+    background: #7A1F1F;
+    color: white;
+}
+
+.page-agent-confirm-btn.confirm:hover {
+    background: #A02828;
+}

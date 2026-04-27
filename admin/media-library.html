@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미디어 라이브러리 - AXINOVA CMS</title>
+    <link rel="icon" type="image/png" href="../logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin-dashboard.css">
+    <link rel="stylesheet" href="css/media-library.css">
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="../logo.png" alt="AXINOVA Logo" class="sidebar-logo">
+            <h2>AXINOVA CMS</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item"><i class="fas fa-home"></i><span>대시보드</span></a>
+            <a href="content-manager.html" class="nav-item"><i class="fas fa-file-alt"></i><span>메인 페이지 관리</span></a>
+            <a href="program-manager.html" class="nav-item"><i class="fas fa-graduation-cap"></i><span>프로그램 관리</span></a>
+            <a href="blog-manager.html" class="nav-item"><i class="fas fa-blog"></i><span>블로그 관리</span></a>
+            <a href="user-manager.html" class="nav-item"><i class="fas fa-users"></i><span>회원 관리</span></a>
+            <a href="media-library.html" class="nav-item active"><i class="fas fa-images"></i><span>미디어 라이브러리</span></a>
+            <a href="settings.html" class="nav-item"><i class="fas fa-cog"></i><span>사이트 설정</span></a>
+            <div class="nav-divider"></div>
+            <a href="../index.html" class="nav-item" target="_blank"><i class="fas fa-external-link-alt"></i><span>사이트 보기</span></a>
+            <a href="#" class="nav-item" onclick="handleLogout()"><i class="fas fa-sign-out-alt"></i><span>로그아웃</span></a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <button class="menu-toggle" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <h1 class="page-title">미디어 라이브러리</h1>
+        </header>
+
+        <div class="dashboard-container">
+            <!-- Upload Section -->
+            <section class="section-card upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                    <h3>파일을 드래그하여 업로드</h3>
+                    <p>또는 클릭하여 파일 선택</p>
+                    <input type="file" id="fileInput" multiple accept="image/*,.pdf,.doc,.docx,.txt,.zip">
+                    <div class="upload-info">
+                        <small>지원 형식: 이미지(JPG, PNG, GIF, WebP), 문서(PDF, DOC, DOCX, TXT, ZIP)</small>
+                        <small>최대 크기: 10MB</small>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Filter and View Options -->
+            <section class="section-card">
+                <div class="media-toolbar">
+                    <div class="media-filters">
+                        <button class="filter-btn active" data-type="all">
+                            <i class="fas fa-th"></i> 전체 <span class="count" id="countAll">0</span>
+                        </button>
+                        <button class="filter-btn" data-type="image">
+                            <i class="fas fa-image"></i> 이미지 <span class="count" id="countImages">0</span>
+                        </button>
+                        <button class="filter-btn" data-type="document">
+                            <i class="fas fa-file-alt"></i> 문서 <span class="count" id="countDocuments">0</span>
+                        </button>
+                    </div>
+
+                    <div class="media-actions">
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="searchInput" placeholder="파일 검색...">
+                        </div>
+                        <div class="view-toggle">
+                            <button class="view-btn active" data-view="grid" title="그리드 보기">
+                                <i class="fas fa-th"></i>
+                            </button>
+                            <button class="view-btn" data-view="list" title="리스트 보기">
+                                <i class="fas fa-list"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Media Grid -->
+                <div class="media-grid" id="mediaGrid">
+                    <div class="empty-state">
+                        <i class="fas fa-images"></i>
+                        <h3>업로드된 미디어가 없습니다</h3>
+                        <p>위의 업로드 영역을 사용하여 파일을 추가하세요</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Media Detail Modal -->
+    <div id="mediaModal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="modal-close" onclick="closeMediaModal()">&times;</span>
+            <div class="modal-body">
+                <div class="media-preview">
+                    <img id="modalImage" src="" alt="">
+                    <div id="modalDocument" class="document-preview">
+                        <i class="fas fa-file-alt"></i>
+                        <p id="modalDocName"></p>
+                    </div>
+                </div>
+                <div class="media-details">
+                    <h3 id="modalTitle">파일 정보</h3>
+                    
+                    <div class="detail-group">
+                        <label>파일명</label>
+                        <input type="text" id="modalFileName" readonly>
+                        <button class="btn-copy" onclick="copyFileName()">
+                            <i class="fas fa-copy"></i> 복사
+                        </button>
+                    </div>
+
+                    <div class="detail-group">
+                        <label>URL</label>
+                        <input type="text" id="modalFileUrl" readonly>
+                        <button class="btn-copy" onclick="copyFileUrl()">
+                            <i class="fas fa-copy"></i> 복사
+                        </button>
+                    </div>
+
+                    <div class="detail-row">
+                        <div class="detail-item">
+                            <label>크기</label>
+                            <span id="modalFileSize"></span>
+                        </div>
+                        <div class="detail-item">
+                            <label>형식</label>
+                            <span id="modalFileType"></span>
+                        </div>
+                    </div>
+
+                    <div class="detail-row">
+                        <div class="detail-item">
+                            <label>업로드 날짜</label>
+                            <span id="modalUploadDate"></span>
+                        </div>
+                        <div class="detail-item">
+                            <label>크기(픽셀)</label>
+                            <span id="modalDimensions">-</span>
+                        </div>
+                    </div>
+
+                    <div class="modal-actions">
+                        <button class="btn-download" onclick="downloadFile()">
+                            <i class="fas fa-download"></i> 다운로드
+                        </button>
+                        <button class="btn-delete" onclick="deleteFile()">
+                            <i class="fas fa-trash"></i> 삭제
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin-auth.js"></script>
+    <script src="js/admin-dashboard.js"></script>
+    <script src="js/media-library.js"></script>
+</body>
+</html>

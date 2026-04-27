@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# Disallow admin and backend areas
+Disallow: /admin/
+Disallow: /backend/
+Disallow: /api/
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Disallow test and development files
+Disallow: /test-*.html
+Disallow: /*.log
+Disallow: /*.json
+Disallow: /package*.json
+
+# Allow important areas
+Allow: /courses/
+Allow: /programs/
+Allow: /about/
+Allow: /support/
+Allow: /lab/
+
+# Sitemap location
+Sitemap: https://www.axinova.ai.kr/sitemap.xml

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>과제 제출 - AXINOVA 평생교육원</title>
+    <link rel="stylesheet" href="../css/assignment-submit.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="assignment-container">
+        <!-- 헤더 -->
+        <header class="assignment-header">
+            <div class="header-left">
+                <button class="btn-back" onclick="history.back()">
+                    <i class="fas fa-arrow-left"></i> 돌아가기
+                </button>
+                <div class="breadcrumb">
+                    <span>My강의실</span>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>과제</span>
+                    <i class="fas fa-chevron-right"></i>
+                    <span class="current">과제 제출</span>
+                </div>
+            </div>
+            <button class="btn-save-draft" id="saveDraftBtn">
+                <i class="fas fa-save"></i> 임시저장
+            </button>
+        </header>
+
+        <!-- 과제 정보 -->
+        <section class="assignment-info-section">
+            <div class="info-card">
+                <div class="card-header">
+                    <div>
+                        <span class="course-badge" id="courseName">AI 에이전트 개발 실무</span>
+                        <h1 class="assignment-title" id="assignmentTitle">AI 챗봇 프로토타입 개발</h1>
+                    </div>
+                    <div class="deadline-box">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <div class="deadline-label">마감일</div>
+                            <div class="deadline-value" id="deadline">2026-03-15 23:59</div>
+                            <div class="time-remaining" id="timeRemaining">7일 15시간 남음</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="assignment-description" id="assignmentDescription">
+                        <h3><i class="fas fa-info-circle"></i> 과제 설명</h3>
+                        <p>
+                            Python 또는 JavaScript를 사용하여 간단한 AI 챗봇 프로토타입을 개발하세요. 
+                            OpenAI API 또는 오픈소스 LLM을 활용하여 사용자 질문에 답변하는 기능을 구현해야 합니다.
+                        </p>
+                        <h4>요구사항:</h4>
+                        <ul>
+                            <li>자연어 처리를 통한 사용자 의도 파악</li>
+                            <li>컨텍스트를 유지하는 대화 기능</li>
+                            <li>최소 3가지 이상의 주제 대응</li>
+                            <li>간단한 GUI 또는 CLI 인터페이스</li>
+                        </ul>
+                    </div>
+                    <div class="assignment-details">
+                        <div class="detail-item">
+                            <i class="fas fa-file-alt"></i>
+                            <span>제출 형식: 코드 파일 + 보고서 (PDF)</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-weight-hanging"></i>
+                            <span>배점: 100점</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-database"></i>
+                            <span>최대 파일 크기: 10MB</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-redo"></i>
+                            <span>재제출: 마감일 전까지 가능</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 제출 양식 -->
+        <section class="submission-form-section">
+            <form id="submissionForm">
+                <!-- 제목 입력 -->
+                <div class="form-group">
+                    <label class="form-label required">
+                        <i class="fas fa-heading"></i> 과제 제목
+                    </label>
+                    <input 
+                        type="text" 
+                        id="submissionTitle" 
+                        class="form-input" 
+                        placeholder="예: AI 챗봇 프로토타입 v1.0"
+                        required
+                    >
+                    <div class="input-hint">명확하고 구체적인 제목을 입력하세요</div>
+                </div>
+
+                <!-- 내용 입력 -->
+                <div class="form-group">
+                    <label class="form-label required">
+                        <i class="fas fa-align-left"></i> 과제 내용
+                    </label>
+                    <div class="editor-toolbar">
+                        <button type="button" class="toolbar-btn" data-action="bold">
+                            <i class="fas fa-bold"></i>
+                        </button>
+                        <button type="button" class="toolbar-btn" data-action="italic">
+                            <i class="fas fa-italic"></i>
+                        </button>
+                        <button type="button" class="toolbar-btn" data-action="underline">
+                            <i class="fas fa-underline"></i>
+                        </button>
+                        <div class="toolbar-divider"></div>
+                        <button type="button" class="toolbar-btn" data-action="list">
+                            <i class="fas fa-list-ul"></i>
+                        </button>
+                        <button type="button" class="toolbar-btn" data-action="link">
+                            <i class="fas fa-link"></i>
+                        </button>
+                        <button type="button" class="toolbar-btn" data-action="code">
+                            <i class="fas fa-code"></i>
+                        </button>
+                    </div>
+                    <textarea 
+                        id="submissionContent" 
+                        class="form-textarea" 
+                        rows="10"
+                        placeholder="과제 수행 내용을 상세히 작성하세요...&#10;&#10;• 개발 환경 및 사용 기술&#10;• 구현 내용&#10;• 주요 기능 설명&#10;• 실행 방법&#10;• 참고 자료"
+                        required
+                    ></textarea>
+                    <div class="character-count">
+                        <span id="charCount">0</span> / 5000자
+                    </div>
+                </div>
+
+                <!-- 파일 첨부 -->
+                <div class="form-group">
+                    <label class="form-label required">
+                        <i class="fas fa-paperclip"></i> 파일 첨부
+                    </label>
+                    <div class="file-upload-area" id="fileUploadArea">
+                        <input 
+                            type="file" 
+                            id="fileInput" 
+                            class="file-input" 
+                            multiple
+                            accept=".pdf,.doc,.docx,.zip,.rar,.py,.js,.html,.css"
+                        >
+                        <div class="upload-placeholder">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>파일을 드래그하거나 클릭하여 업로드</p>
+                            <span class="upload-hint">
+                                지원 형식: PDF, DOC, ZIP, 코드 파일 (최대 10MB)
+                            </span>
+                        </div>
+                    </div>
+                    <div class="file-list" id="fileList"></div>
+                </div>
+
+                <!-- URL 링크 (선택사항) -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="fas fa-link"></i> 참고 링크 (선택사항)
+                    </label>
+                    <div id="linkContainer">
+                        <div class="link-input-group">
+                            <input 
+                                type="url" 
+                                class="form-input link-input" 
+                                placeholder="https://github.com/username/project"
+                            >
+                            <button type="button" class="btn-add-link" onclick="addLinkInput()">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="input-hint">GitHub 저장소, 데모 사이트 등의 URL을 추가할 수 있습니다</div>
+                </div>
+
+                <!-- 제출 전 확인사항 -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="fas fa-check-square"></i> 제출 전 확인사항
+                    </label>
+                    <div class="checklist">
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="check1" required>
+                            <span>과제 요구사항을 모두 충족했습니다</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="check2" required>
+                            <span>제출 파일이 정상적으로 열리고 실행됩니다</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="check3" required>
+                            <span>표절 검사를 완료했으며 독창적인 작업물입니다</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" id="check4" required>
+                            <span>제출 후 수정이 불가능함을 이해했습니다</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 제출 버튼 -->
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="history.back()">
+                        <i class="fas fa-times"></i> 취소
+                    </button>
+                    <button type="submit" class="btn btn-primary" id="submitBtn">
+                        <i class="fas fa-paper-plane"></i> 과제 제출하기
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- 이전 제출 내역 -->
+        <section class="submission-history-section" id="submissionHistory" style="display: none;">
+            <h2><i class="fas fa-history"></i> 이전 제출 내역</h2>
+            <div class="history-list" id="historyList">
+                <!-- 동적으로 생성됨 -->
+            </div>
+        </section>
+    </div>
+
+    <!-- 제출 확인 모달 -->
+    <div class="modal" id="confirmModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-exclamation-triangle"></i> 과제 제출 확인</h2>
+            </div>
+            <div class="modal-body">
+                <p>과제를 제출하시겠습니까?</p>
+                <p class="warning-text">
+                    <i class="fas fa-info-circle"></i>
+                    제출 후에는 수정할 수 없으며, 마감일 전까지 재제출만 가능합니다.
+                </p>
+                <div class="submission-summary" id="submissionSummary">
+                    <!-- 동적으로 생성됨 -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeConfirmModal()">
+                    <i class="fas fa-times"></i> 취소
+                </button>
+                <button class="btn btn-primary" onclick="confirmSubmission()">
+                    <i class="fas fa-check"></i> 제출 확인
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 성공 모달 -->
+    <div class="modal" id="successModal">
+        <div class="modal-content success">
+            <div class="modal-header">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>과제 제출 완료!</h2>
+            </div>
+            <div class="modal-body">
+                <p>과제가 성공적으로 제출되었습니다.</p>
+                <div class="submission-details">
+                    <div class="detail-row">
+                        <span class="detail-label">제출 번호</span>
+                        <span class="detail-value" id="submissionId">-</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">제출 시간</span>
+                        <span class="detail-value" id="submissionTime">-</span>
+                    </div>
+                </div>
+                <p class="info-text">
+                    <i class="fas fa-info-circle"></i>
+                    강사님의 채점 후 성적과 피드백을 확인할 수 있습니다.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="goToMyClassroom()">
+                    <i class="fas fa-home"></i> My강의실로 이동
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/assignment-manager.js"></script>
+    <script src="../js/assignment-submit.js"></script>
+</body>
+</html>
