@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사이트 설정 - AXINOVA CMS</title>
+    <link rel="icon" type="image/png" href="../logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin-dashboard.css">
+    <style>
+        .settings-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .settings-tab {
+            padding: 12px 24px;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid transparent;
+            color: var(--text-color);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: -2px;
+        }
+
+        .settings-tab:hover {
+            color: var(--primary-color);
+        }
+
+        .settings-tab.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+
+        .settings-content {
+            display: none;
+        }
+
+        .settings-content.active {
+            display: block;
+        }
+
+        .form-section {
+            margin-bottom: 32px;
+        }
+
+        .form-section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-section-title i {
+            color: var(--primary-color);
+        }
+
+        .form-row {
+            margin-bottom: 20px;
+        }
+
+        .form-row label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--text-color);
+        }
+
+        .form-row label .required {
+            color: #e74c3c;
+        }
+
+        .form-row input[type="text"],
+        .form-row input[type="email"],
+        .form-row input[type="url"],
+        .form-row input[type="tel"],
+        .form-row textarea,
+        .form-row select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 0.95rem;
+            transition: border-color 0.3s;
+            background: var(--background);
+            color: var(--text-color);
+        }
+
+        .form-row input:focus,
+        .form-row textarea:focus,
+        .form-row select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form-row textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .form-row small {
+            display: block;
+            margin-top: 4px;
+            color: var(--gray-medium);
+            font-size: 0.85rem;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .btn-save {
+            padding: 12px 32px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-save:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-reset {
+            padding: 12px 24px;
+            background: transparent;
+            color: var(--gray-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-reset:hover {
+            background: var(--background);
+            border-color: var(--gray-dark);
+        }
+
+        .success-message {
+            padding: 12px 16px;
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: none;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .success-message.show {
+            display: flex;
+        }
+
+        .info-box {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .info-box i {
+            color: #2196F3;
+            margin-right: 8px;
+        }
+
+        .keyword-input-wrapper {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .keyword-input-wrapper input {
+            flex: 1;
+        }
+
+        .btn-add-keyword {
+            padding: 8px 16px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .keyword-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .keyword-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .keyword-tag .remove-keyword {
+            cursor: pointer;
+            padding: 0 4px;
+        }
+
+        .keyword-tag .remove-keyword:hover {
+            opacity: 0.7;
+        }
+
+        .character-count {
+            text-align: right;
+            font-size: 0.85rem;
+            color: var(--gray-medium);
+            margin-top: 4px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="../logo.png" alt="AXINOVA Logo" class="sidebar-logo">
+            <h2>AXINOVA CMS</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item"><i class="fas fa-home"></i><span>대시보드</span></a>
+            <a href="content-manager.html" class="nav-item"><i class="fas fa-file-alt"></i><span>메인 페이지 관리</span></a>
+            <a href="program-manager.html" class="nav-item"><i class="fas fa-graduation-cap"></i><span>프로그램 관리</span></a>
+            <a href="blog-manager.html" class="nav-item"><i class="fas fa-blog"></i><span>블로그 관리</span></a>
+            <a href="user-manager.html" class="nav-item"><i class="fas fa-users"></i><span>회원 관리</span></a>
+            <a href="media-library.html" class="nav-item"><i class="fas fa-images"></i><span>미디어 라이브러리</span></a>
+            <a href="settings.html" class="nav-item active"><i class="fas fa-cog"></i><span>사이트 설정</span></a>
+            <div class="nav-divider"></div>
+            <a href="../index.html" class="nav-item" target="_blank"><i class="fas fa-external-link-alt"></i><span>사이트 보기</span></a>
+            <a href="#" class="nav-item" onclick="handleLogout()"><i class="fas fa-sign-out-alt"></i><span>로그아웃</span></a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <button class="menu-toggle" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <h1 class="page-title">사이트 설정</h1>
+        </header>
+
+        <div class="dashboard-container">
+            <div class="success-message" id="successMessage">
+                <i class="fas fa-check-circle"></i>
+                <span>설정이 성공적으로 저장되었습니다.</span>
+            </div>
+
+            <section class="section-card">
+                <div class="settings-tabs">
+                    <button class="settings-tab active" data-tab="basic">
+                        <i class="fas fa-info-circle"></i> 기본 정보
+                    </button>
+                    <button class="settings-tab" data-tab="seo">
+                        <i class="fas fa-search"></i> SEO 설정
+                    </button>
+                    <button class="settings-tab" data-tab="contact">
+                        <i class="fas fa-address-book"></i> 연락처 정보
+                    </button>
+                </div>
+
+                <!-- 기본 정보 탭 -->
+                <div class="settings-content active" id="basic">
+                    <form id="basicSettingsForm">
+                        <div class="form-section">
+                            <div class="form-section-title">
+                                <i class="fas fa-building"></i>
+                                사이트 기본 정보
+                            </div>
+
+                            <div class="form-row">
+                                <label>사이트 이름 <span class="required">*</span></label>
+                                <input type="text" id="siteName" required placeholder="AXINOVA 평생교육원">
+                                <small>사이트 상단에 표시되는 이름입니다.</small>
+                            </div>
+
+                            <div class="form-row">
+                                <label>사이트 부제목</label>
+                                <input type="text" id="siteSubtitle" placeholder="AI 교육 및 AI 에이전시 교육 전문">
+                                <small>로고 아래 또는 헤더에 표시되는 부제목입니다.</small>
+                            </div>
+
+                            <div class="form-row">
+                                <label>사이트 설명</label>
+                                <textarea id="siteDescription" rows="3" placeholder="AXINOVA 평생교육원은 AI 교육 전문 기관으로..."></textarea>
+                                <small>사이트에 대한 간단한 설명입니다.</small>
+                            </div>
+
+                            <div class="form-row">
+                                <label>사이트 URL</label>
+                                <input type="url" id="siteUrl" placeholder="https://www.axinova.ai.kr">
+                                <small>사이트의 공식 URL입니다.</small>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <div class="form-section-title">
+                                <i class="fas fa-palette"></i>
+                                브랜딩
+                            </div>
+
+                            <div class="form-row">
+                                <label>태그라인</label>
+                                <input type="text" id="tagline" placeholder="AI 생존전략 아카데미">
+                                <small>히어로 섹션에 표시되는 메인 메시지입니다.</small>
+                            </div>
+
+                            <div class="form-row">
+                                <label>메인 캐치프레이즈</label>
+                                <input type="text" id="mainCatchphrase" placeholder="AI 전문가 양성의 중심">
+                                <small>태그라인 하단에 표시되는 텍스트입니다.</small>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn-reset" onclick="resetBasicSettings()">
+                                <i class="fas fa-undo"></i> 초기화
+                            </button>
+                            <button type="submit" class="btn-save">
+                                <i class="fas fa-save"></i> 저장하기
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- SEO 설정 탭 -->
+                <div class="settings-content" id="seo">
+                    <form id="seoSettingsForm">
+                        <div class="info-box">
+                            <i class="fas fa-info-circle"></i>
+                            SEO 설정은 검색 엔진 최적화를 위한 메타데이터를 관리합니다. 이 설정은 사이트의 검색 노출에 영향을 줍니다.
+                        </div>
+
+                        <div class="form-section">
+                            <div class="form-section-title">
+                                <i class="fas fa-tag"></i>
+                                메타 정보
+                            </div>
+
+                            <div class="form-row">
+                                <label>메타 제목 <span class="required">*</span></label>
+                                <input type="text" id="metaTitle" required maxlength="60" placeholder="AXINOVA 평생교육원 - AI 교육 및 AI 에이전시 교육 전문">
+                                <small>검색 결과에 표시되는 제목 (권장: 50-60자)</small>
+                                <div class="character-count">
+                                    <span id="metaTitleCount">0</span> / 60자
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <label>메타 설명 <span class="required">*</span></label>
+                                <textarea id="metaDescription" required maxlength="160" rows="3" placeholder="2026 공공 AI 자격인증 대비 실무 중심 AI 교육. AGI 네비게이터 10대 핵심 기술 교육 전문."></textarea>
+                                <small>검색 결과에 표시되는 설명 (권장: 120-160자)</small>
+                                <div class="character-count">
+                                    <span id="metaDescCount">0</span> / 160자
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <label>메타 키워드</label>
+                                <div class="keyword-input-wrapper">
+                                    <input type="text" id="keywordInput" placeholder="키워드 입력 (예: AI 교육, AI 자격증)">
+                                    <button type="button" class="btn-add-keyword" onclick="addKeyword()">
+                                        <i class="fas fa-plus"></i> 추가
+                                    </button>
+                                </div>
+                                <small>검색 키워드를 입력하고 추가 버튼을 클릭하세요.</small>
+                                <div class="keyword-list" id="keywordList"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <div class="form-section-title">
+                                <i class="fas fa-share-alt"></i>
+                                소셜 미디어 (Open Graph)
+                            </div>
+
+                            <div class="form-row">
+                                <label>OG 제목</label>
+                                <input type="text" id="ogTitle" placeholder="AXINOVA 평생교육원">
+                                <small>소셜 미디어 공유 시 표시되는 제목입니다.</small>
+                            </div>
+
+                            <div class="form-row">
+                                <label>OG 설명</label>
+                                <textarea id="ogDescription" rows="2" placeholder="AI의 AX 시대를 선도하는 평생교육 혁신 기관"></textarea>
+                                <small>소셜 미디어 공유 시 표시되는 설명입니다.</small>
+                            </div>
+
+                            <div class="form-row">
+                                <label>OG 이미지 URL</label>
+                                <input type="url" id="ogImage" placeholder="https://www.axinova.ai.kr/og-image.jpg">
+                                <small>소셜 미디어 공유 시 표시되는 이미지 (권장: 1200x630px)</small>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <div class="form-section-title">
+                                <i class="fas fa-robot"></i>
+                                검색 엔진
+                            </div>
+
+                            <div class="form-row">
+                                <label>Google 사이트 인증 코드</label>
+                                <input type="text" id="googleVerification" placeholder="google-site-verification=...">
+                                <small>Google Search Console 인증 메타 태그 content 값</small>
+                            </div>
+
+                            <div class="form-row">
+                                <label>Naver 사이트 인증 코드</label>
+                                <input type="text" id="naverVerification" placeholder="naver-site-verification=...">
+                                <small>네이버 웹마스터 도구 인증 메타 태그 content 값</small>
+                            </div>
+
+                            <div class="form-row">
+                                <label>Google Analytics ID</label>
+                                <input type="text" id="googleAnalyticsId" placeholder="G-XXXXXXXXXX">
+                                <small>Google Analytics 추적 ID (GA4)</small>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn-reset" onclick="resetSeoSettings()">
+                                <i class="fas fa-undo"></i> 초기화
+                            </button>
+                            <button type="submit" class="btn-save">
+                                <i class="fas fa-save"></i> 저장하기
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- 연락처 정보 탭 -->
+                <div class="settings-content" id="contact">
+                    <form id="contactSettingsForm">
+                        <div class="form-section">
+                            <div class="form-section-title">
+                                <i class="fas fa-phone"></i>
+                                연락처 정보
+                            </div>
+
+                            <div class="form-grid">
+                                <div class="form-row">
+                                    <label>대표 전화번호</label>
+                                    <input type="tel" id="phone" placeholder="070-8657-1948">
+                                </div>
+
+                                <div class="form-row">
+                                    <label>팩스 번호</label>
+                                    <input type="tel" id="fax" placeholder="070-xxxx-xxxx">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <label>이메일 주소</label>
+                                <input type="email" id="email" placeholder="info@axinova.ai.kr">
+                            </div>
+
+                            <div class="form-row">
+                                <label>사업장 주소</label>
+                                <textarea id="address" rows="2" placeholder="충남 천안시 서북구 불당17길 27"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <div class="form-section-title">
+                                <i class="fas fa-share-alt"></i>
+                                소셜 미디어
+                            </div>
+
+                            <div class="form-grid">
+                                <div class="form-row">
+                                    <label>Facebook 페이지</label>
+                                    <input type="url" id="facebook" placeholder="https://facebook.com/axinova">
+                                </div>
+
+                                <div class="form-row">
+                                    <label>Instagram</label>
+                                    <input type="url" id="instagram" placeholder="https://instagram.com/axinova">
+                                </div>
+
+                                <div class="form-row">
+                                    <label>YouTube 채널</label>
+                                    <input type="url" id="youtube" placeholder="https://youtube.com/@axinova">
+                                </div>
+
+                                <div class="form-row">
+                                    <label>네이버 블로그</label>
+                                    <input type="url" id="naverBlog" placeholder="https://blog.naver.com/axinova">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <div class="form-section-title">
+                                <i class="fas fa-building"></i>
+                                회사 정보
+                            </div>
+
+                            <div class="form-grid">
+                                <div class="form-row">
+                                    <label>사업자등록번호</label>
+                                    <input type="text" id="businessNumber" placeholder="123-45-67890">
+                                </div>
+
+                                <div class="form-row">
+                                    <label>대표자명</label>
+                                    <input type="text" id="ceoName" placeholder="홍길동">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn-reset" onclick="resetContactSettings()">
+                                <i class="fas fa-undo"></i> 초기화
+                            </button>
+                            <button type="submit" class="btn-save">
+                                <i class="fas fa-save"></i> 저장하기
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/admin-auth.js"></script>
+    <script src="js/admin-dashboard.js"></script>
+    <script src="js/site-settings.js"></script>
+</body>
+</html>

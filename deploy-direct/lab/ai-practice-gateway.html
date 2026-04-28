@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AXINOVA AI 실습 게이트웨이 - Google Colab, Hugging Face, Jupyter Notebook 등 실시간 AI 개발 환경 접근">
+    <meta name="keywords" content="AI 실습, Google Colab, Hugging Face, AI Lab, 머신러닝 실습, 딥러닝 실습">
+    <title>AI 실습 게이트웨이 - AXINOVA</title>
+    <link rel="icon" type="image/png" href="../logo.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../dark-mode.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .lab-hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lab-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(122, 31, 31, 0.2) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 70%, rgba(201, 169, 97, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .lab-hero h1 {
+            color: #fff;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .lab-hero p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .lab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            padding: 4rem 0;
+        }
+
+        .lab-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lab-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--gold));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .lab-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .lab-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .lab-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #7A1F1F, #A63939);
+            border-radius: 20px;
+            font-size: 2.5rem;
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(122, 31, 31, 0.3);
+        }
+
+        .lab-card h3 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .lab-card p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .lab-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.5rem 0;
+        }
+
+        .lab-features li {
+            padding: 0.5rem 0;
+            color: var(--gray-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .lab-features li i {
+            color: var(--primary-color);
+            font-size: 1rem;
+        }
+
+        .lab-btn {
+            display: inline-block;
+            padding: 12px 32px;
+            background: linear-gradient(135deg, #7A1F1F, #A63939);
+            color: #fff;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+
+        .lab-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(122, 31, 31, 0.4);
+        }
+
+        .lab-btn.secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .lab-btn.secondary:hover {
+            background: rgba(122, 31, 31, 0.05);
+        }
+
+        .quick-links {
+            background: var(--off-white);
+            padding: 3rem 0;
+            border-radius: 16px;
+            margin: 3rem 0;
+        }
+
+        .quick-links h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+
+        .quick-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .quick-link-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .quick-link-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-md);
+        }
+
+        .quick-link-card i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .quick-link-card h4 {
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .quick-link-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Dark mode specific styles */
+        [data-theme="dark"] .lab-card,
+        [data-theme="dark"] .quick-link-card {
+            background: #242424;
+            border-color: #333;
+        }
+
+        [data-theme="dark"] .lab-card h3,
+        [data-theme="dark"] .quick-link-card h4 {
+            color: #f5f5f5;
+        }
+
+        [data-theme="dark"] .quick-links {
+            background: #242424;
+        }
+
+        @media (max-width: 768px) {
+            .lab-hero h1 {
+                font-size: 2rem;
+            }
+
+            .lab-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .quick-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--primary-color);
+            color: #fff;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .badge.pro {
+            background: var(--gold);
+        }
+
+        .badge.free {
+            background: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation (reuse from main index.html) -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+                    <img src="../logo.png" alt="AXINOVA" class="logo-img" style="height: 50px;">
+                    <div class="logo-text">
+                        <span class="logo-name">AXINOVA</span>
+                        <span class="logo-subtitle">AI Lab</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="lab-hero">
+        <div class="container">
+            <h1>🚀 AI 실습 게이트웨이</h1>
+            <p>클라우드 기반 AI 개발 환경에 즉시 접근하여 실전 프로젝트를 시작하세요. <br>별도 설치 없이 브라우저에서 바로 AI 모델을 학습하고 테스트할 수 있습니다.</p>
+        </div>
+    </section>
+
+    <!-- Main Lab Environment Cards -->
+    <section class="section">
+        <div class="container">
+            <div class="lab-grid">
+                <!-- Google Colab -->
+                <div class="lab-card">
+                    <span class="badge free">무료</span>
+                    <div class="lab-icon">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <h3>Google Colab</h3>
+                    <p>Google이 제공하는 무료 Jupyter Notebook 환경. GPU/TPU 무료 지원으로 딥러닝 모델 학습에 최적화되어 있습니다.</p>
+                    <ul class="lab-features">
+                        <li><i class="fas fa-check-circle"></i> 무료 GPU/TPU 제공</li>
+                        <li><i class="fas fa-check-circle"></i> Jupyter Notebook 기반</li>
+                        <li><i class="fas fa-check-circle"></i> Google Drive 연동</li>
+                        <li><i class="fas fa-check-circle"></i> Python 3.x 지원</li>
+                    </ul>
+                    <a href="https://colab.research.google.com/" target="_blank" class="lab-btn">
+                        <i class="fas fa-external-link-alt"></i> Colab 시작하기
+                    </a>
+                </div>
+
+                <!-- Hugging Face Spaces -->
+                <div class="lab-card">
+                    <span class="badge free">무료</span>
+                    <div class="lab-icon">
+                        🤗
+                    </div>
+                    <h3>Hugging Face Spaces</h3>
+                    <p>최신 AI 모델을 즉시 테스트하고 배포할 수 있는 플랫폼. Gradio/Streamlit 기반 웹 앱 호스팅을 지원합니다.</p>
+                    <ul class="lab-features">
+                        <li><i class="fas fa-check-circle"></i> 사전 학습된 모델 라이브러리</li>
+                        <li><i class="fas fa-check-circle"></i> Gradio/Streamlit 지원</li>
+                        <li><i class="fas fa-check-circle"></i> 무료 GPU 제공 (제한적)</li>
+                        <li><i class="fas fa-check-circle"></i> 커뮤니티 모델 공유</li>
+                    </ul>
+                    <a href="https://huggingface.co/spaces" target="_blank" class="lab-btn">
+                        <i class="fas fa-external-link-alt"></i> Spaces 탐색하기
+                    </a>
+                </div>
+
+                <!-- Kaggle Notebooks -->
+                <div class="lab-card">
+                    <span class="badge free">무료</span>
+                    <div class="lab-icon">
+                        <i class="fab fa-kaggle"></i>
+                    </div>
+                    <h3>Kaggle Notebooks</h3>
+                    <p>데이터 과학 경진대회 플랫폼 Kaggle의 무료 Jupyter 환경. 방대한 데이터셋과 커뮤니티 노트북을 활용할 수 있습니다.</p>
+                    <ul class="lab-features">
+                        <li><i class="fas fa-check-circle"></i> 주당 30시간 GPU 무료</li>
+                        <li><i class="fas fa-check-circle"></i> 50,000+ 공개 데이터셋</li>
+                        <li><i class="fas fa-check-circle"></i> 경진대회 참여 가능</li>
+                        <li><i class="fas fa-check-circle"></i> 커뮤니티 노트북 학습</li>
+                    </ul>
+                    <a href="https://www.kaggle.com/code" target="_blank" class="lab-btn">
+                        <i class="fas fa-external-link-alt"></i> Kaggle 시작하기
+                    </a>
+                </div>
+
+                <!-- GitHub Codespaces -->
+                <div class="lab-card">
+                    <span class="badge pro">PRO</span>
+                    <div class="lab-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3>GitHub Codespaces</h3>
+                    <p>클라우드 기반 VS Code 개발 환경. Git 통합과 함께 완전한 개발 환경을 제공합니다.</p>
+                    <ul class="lab-features">
+                        <li><i class="fas fa-check-circle"></i> VS Code 브라우저 버전</li>
+                        <li><i class="fas fa-check-circle"></i> Git/GitHub 완벽 통합</li>
+                        <li><i class="fas fa-check-circle"></i> 확장 프로그램 지원</li>
+                        <li><i class="fas fa-check-circle"></i> 월 120시간 무료 (개인)</li>
+                    </ul>
+                    <a href="https://github.com/codespaces" target="_blank" class="lab-btn">
+                        <i class="fas fa-external-link-alt"></i> Codespaces 열기
+                    </a>
+                </div>
+
+                <!-- Jupyter.org Try -->
+                <div class="lab-card">
+                    <span class="badge free">무료</span>
+                    <div class="lab-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3>Jupyter.org (Try)</h3>
+                    <p>공식 Jupyter Notebook 체험 환경. 설치 없이 즉시 Python, R, Julia 등을 실행할 수 있습니다.</p>
+                    <ul class="lab-features">
+                        <li><i class="fas fa-check-circle"></i> 공식 Jupyter 환경</li>
+                        <li><i class="fas fa-check-circle"></i> 다양한 언어 지원</li>
+                        <li><i class="fas fa-check-circle"></i> 설치 불필요</li>
+                        <li><i class="fas fa-check-circle"></i> 실시간 코드 실행</li>
+                    </ul>
+                    <a href="https://jupyter.org/try" target="_blank" class="lab-btn">
+                        <i class="fas fa-external-link-alt"></i> Jupyter 체험하기
+                    </a>
+                </div>
+
+                <!-- OpenAI Playground -->
+                <div class="lab-card">
+                    <span class="badge pro">유료</span>
+                    <div class="lab-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>OpenAI Playground</h3>
+                    <p>GPT 모델을 직접 테스트하고 프롬프트 엔지니어링을 실습할 수 있는 공식 플랫폼입니다.</p>
+                    <ul class="lab-features">
+                        <li><i class="fas fa-check-circle"></i> GPT-4, GPT-3.5 접근</li>
+                        <li><i class="fas fa-check-circle"></i> 프롬프트 엔지니어링 실습</li>
+                        <li><i class="fas fa-check-circle"></i> API 코드 자동 생성</li>
+                        <li><i class="fas fa-check-circle"></i> $18 무료 크레딧 (신규 가입)</li>
+                    </ul>
+                    <a href="https://platform.openai.com/playground" target="_blank" class="lab-btn">
+                        <i class="fas fa-external-link-alt"></i> Playground 열기
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Access Links -->
+    <section class="quick-links">
+        <div class="container">
+            <h2>⚡ 빠른 실습 리소스</h2>
+            <div class="quick-grid">
+                <a href="https://teachablemachine.withgoogle.com/" target="_blank" class="quick-link-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h4>Teachable Machine</h4>
+                    <p>코드 없이 AI 모델 학습</p>
+                </a>
+                <a href="https://cloud.google.com/vertex-ai/docs/start/introduction-unified-platform" target="_blank" class="quick-link-card">
+                    <i class="fas fa-cloud"></i>
+                    <h4>Google Vertex AI</h4>
+                    <p>엔터프라이즈 AI 플랫폼</p>
+                </a>
+                <a href="https://replicate.com/" target="_blank" class="quick-link-card">
+                    <i class="fas fa-copy"></i>
+                    <h4>Replicate</h4>
+                    <p>오픈소스 모델 API</p>
+                </a>
+                <a href="https://www.tensorflow.org/js" target="_blank" class="quick-link-card">
+                    <i class="fas fa-code"></i>
+                    <h4>TensorFlow.js</h4>
+                    <p>브라우저 내 머신러닝</p>
+                </a>
+                <a href="https://www.crewai.com/" target="_blank" class="quick-link-card">
+                    <i class="fas fa-users-cog"></i>
+                    <h4>CrewAI</h4>
+                    <p>Multi-agent orchestration</p>
+                </a>
+                <a href="https://hume.ai/" target="_blank" class="quick-link-card">
+                    <i class="fas fa-smile"></i>
+                    <h4>Hume AI</h4>
+                    <p>Emotion AI 플랫폼</p>
+                </a>
+                <a href="https://unity.com/ai" target="_blank" class="quick-link-card">
+                    <i class="fas fa-gamepad"></i>
+                    <h4>Unity AI</h4>
+                    <p>AR/VR AI 개발</p>
+                </a>
+                <a href="https://runwayml.com/" target="_blank" class="quick-link-card">
+                    <i class="fas fa-magic"></i>
+                    <h4>Runway ML</h4>
+                    <p>AI 비디오 생성</p>
+                </a>
+                <a href="https://zapier.com/" target="_blank" class="quick-link-card">
+                    <i class="fas fa-bolt"></i>
+                    <h4>Zapier</h4>
+                    <p>워크플로 자동화</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2026 AI 마케팅 도구 섹션 -->
+    <section class="section" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 4rem 0; color: white;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 1rem; color: white; font-size: 2.5rem;">
+                🚀 2026 AI 마케팅 필수 도구
+            </h2>
+            <p style="text-align: center; margin-bottom: 3rem; opacity: 0.9; font-size: 1.1rem;">
+                HubSpot·Deloitte·Gartner 보고서 기반 실전 도구<br>
+                <strong style="color: var(--gold);">월 2,400만~1억 3천만 원 recurring revenue 창출 가능</strong>
+            </p>
+            
+            <div class="lab-grid">
+                <!-- Claude -->
+                <div class="lab-card" style="background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 100%); border: 2px solid rgba(201, 169, 97, 0.3);">
+                    <span class="badge pro" style="background: var(--gold);">핵심 도구</span>
+                    <div class="lab-icon" style="background: linear-gradient(135deg, #C9A961, #D4B876);">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 style="color: white;">Claude (Anthropic)</h3>
+                    <p style="color: rgba(255, 255, 255, 0.8);">Multi-agent orchestration의 핵심. CrewAI와 결합하여 end-to-end 캠페인 자동화.</p>
+                    <ul class="lab-features">
+                        <li><i class="fas fa-check-circle"></i> Multi-Agent Orchestration</li>
+                        <li><i class="fas fa-check-circle"></i> Claude Projects 지원</li>
+                        <li><i class="fas fa-check-circle"></i> 월 $28K~115K 수익 모델</li>
+                        <li><i class="fas fa-check-circle"></i> DTC 브랜드 대행 최적화</li>
+                    </ul>
+                    <a href="https://claude.ai/" target="_blank" class="lab-btn">
+                        <i class="fas fa-external-link-alt"></i> Claude 시작하기
+                    </a>
+                </div>
+
+                <!-- CrewAI -->
+                <div class="lab-card" style="background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 100%); border: 2px solid rgba(201, 169, 97, 0.3);">
+                    <span class="badge pro" style="background: var(--gold);">핵심 도구</span>
+                    <div class="lab-icon" style="background: linear-gradient(135deg, #C9A961, #D4B876);">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <h3 style="color: white;">CrewAI</h3>
+                    <p style="color: rgba(255, 255, 255, 0.8);">Multi-agent workflow orchestration framework. HubSpot식 자동화 구현.</p>
+                    <ul class="lab-features">
+                        <li><i class="fas fa-check-circle"></i> Python 기반 프레임워크</li>
+                        <li><i class="fas fa-check-circle"></i> Agent 협업 오케스트레이션</li>
+                        <li><i class="fas fa-check-circle"></i> 워크플로 자동화</li>
+                        <li><i class="fas fa-check-circle"></i> LangChain 통합</li>
+                    </ul>
+                    <a href="https://www.crewai.com/" target="_blank" class="lab-btn">
+                        <i class="fas fa-external-link-alt"></i> CrewAI 시작하기
+                    </a>
+                </div>
+
+                <!-- Hume AI -->
+                <div class="lab-card" style="background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 100%); border: 2px solid rgba(201, 169, 97, 0.3);">
+                    <span class="badge pro" style="background: var(--gold);">Emotion AI</span>
+                    <div class="lab-icon" style="background: linear-gradient(135deg, #C9A961, #D4B876);">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 style="color: white;">Hume AI</h3>
+                    <p style="color: rgba(255, 255, 255, 0.8);">실시간 emotion data 분석. e-commerce 초개인화 캠페인 구축.</p>
+                    <ul class="lab-features">
+                        <li><i class="fas fa-check-circle"></i> 감정 인식 API</li>
+                        <li><i class="fas fa-check-circle"></i> Contextual personalization</li>
+                        <li><i class="fas fa-check-circle"></i> 월 $30K~120K 수익 모델</li>
+                        <li><i class="fas fa-check-circle"></i> e-commerce 6~12곳 대상</li>
+                    </ul>
+                    <a href="https://hume.ai/" target="_blank" class="lab-btn">
+                        <i class="fas fa-external-link-alt"></i> Hume AI 시작하기
+                    </a>
+                </div>
+
+                <!-- Unity AI -->
+                <div class="lab-card" style="background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 100%); border: 2px solid rgba(201, 169, 97, 0.3);">
+                    <span class="badge pro" style="background: var(--gold);">AR/VR</span>
+                    <div class="lab-icon" style="background: linear-gradient(135deg, #C9A961, #D4B876);">
+                        <i class="fas fa-vr-cardboard"></i>
+                    </div>
+                    <h3 style="color: white;">Unity AI + Runway</h3>
+                    <p style="color: rgba(255, 255, 255, 0.8);">AR/VR interactive campaign 실시간 생성. K-뷰티·패션 DTC에 최적화.</p>
+                    <ul class="lab-features">
+                        <li><i class="fas fa-check-circle"></i> Unity AI 엔진</li>
+                        <li><i class="fas fa-check-circle"></i> Runway spatial 기술</li>
+                        <li><i class="fas fa-check-circle"></i> 월 $32K~130K 수익 모델</li>
+                        <li><i class="fas fa-check-circle"></i> Experience Factory 구축</li>
+                    </ul>
+                    <a href="https://unity.com/ai" target="_blank" class="lab-btn">
+                        <i class="fas fa-external-link-alt"></i> Unity AI 시작하기
+                    </a>
+                </div>
+
+                <!-- PETs Toolkit -->
+                <div class="lab-card" style="background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 100%); border: 2px solid rgba(201, 169, 97, 0.3);">
+                    <span class="badge pro" style="background: var(--gold);">Privacy</span>
+                    <div class="lab-icon" style="background: linear-gradient(135deg, #C9A961, #D4B876);">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3 style="color: white;">PETs Toolkit + Zapier</h3>
+                    <p style="color: rgba(255, 255, 255, 0.8);">Privacy-Enhancing Technologies. Federated learning과 encryption layer 통합.</p>
+                    <ul class="lab-features">
+                        <li><i class="fas fa-check-circle"></i> Federated learning</li>
+                        <li><i class="fas fa-check-circle"></i> Encryption layer</li>
+                        <li><i class="fas fa-check-circle"></i> 월 $24K~98K 수익 모델</li>
+                        <li><i class="fas fa-check-circle"></i> B2B 10곳 대상 감사·구축</li>
+                    </ul>
+                    <a href="https://zapier.com/" target="_blank" class="lab-btn">
+                        <i class="fas fa-external-link-alt"></i> Zapier 시작하기
+                    </a>
+                </div>
+
+                <!-- ROI Dashboard Tools -->
+                <div class="lab-card" style="background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 100%); border: 2px solid rgba(201, 169, 97, 0.3);">
+                    <span class="badge pro" style="background: var(--gold);">Analytics</span>
+                    <div class="lab-icon" style="background: linear-gradient(135deg, #C9A961, #D4B876);">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 style="color: white;">No-Code ROI Dashboard</h3>
+                    <p style="color: rgba(255, 255, 255, 0.8);">Deloitte식 standardized ROI·attribution 대시보드. Measurable AI Value 증명.</p>
+                    <ul class="lab-features">
+                        <li><i class="fas fa-check-circle"></i> No-code dashboard 구축</li>
+                        <li><i class="fas fa-check-circle"></i> API 연동 (GA4, Meta, etc)</li>
+                        <li><i class="fas fa-check-circle"></i> 월 $26K~105K 수익 모델</li>
+                        <li><i class="fas fa-check-circle"></i> SMB 8곳 대상 audit</li>
+                    </ul>
+                    <a href="https://www.google.com/analytics/" target="_blank" class="lab-btn">
+                        <i class="fas fa-external-link-alt"></i> Analytics 시작하기
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Access Links -->
+    <section class="quick-links">
+        <div class="container">
+            <h2>⚡ 빠른 실습 리소스</h2>
+            <div class="quick-grid">
+                <a href="https://teachablemachine.withgoogle.com/" target="_blank" class="quick-link-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h4>Teachable Machine</h4>
+                    <p>코드 없이 AI 모델 학습</p>
+                </a>
+                <a href="https://cloud.google.com/vertex-ai/docs/start/introduction-unified-platform" target="_blank" class="quick-link-card">
+                    <i class="fas fa-cloud"></i>
+                    <h4>Google Vertex AI</h4>
+                    <p>엔터프라이즈 AI 플랫폼</p>
+                </a>
+                <a href="https://replicate.com/" target="_blank" class="quick-link-card">
+                    <i class="fas fa-copy"></i>
+                    <h4>Replicate</h4>
+                    <p>오픈소스 모델 API</p>
+                </a>
+
+    <!-- CTA Section -->
+    <section class="section" style="text-align: center; padding: 4rem 0; background: var(--off-white);">
+        <div class="container">
+            <h2 style="margin-bottom: 1rem;">실습 가이드가 필요하신가요?</h2>
+            <p style="color: var(--gray); margin-bottom: 2rem;">AXINOVA의 AI 도우미가 실습 환경 선택과 사용법을 안내해드립니다.</p>
+            <a href="../index.html#home" class="lab-btn" style="max-width: 300px; margin: 0 auto;">
+                <i class="fas fa-comments"></i> AI 도우미에게 질문하기
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" style="background: var(--dark); color: var(--white); padding: 2rem 0; text-align: center;">
+        <div class="container">
+            <p>&copy; 2026 AXINOVA 평생교육원. All rights reserved.</p>
+            <p style="margin-top: 1rem;">
+                <a href="tel:070-8657-1948" style="color: var(--gold);">☎ 070-8657-1948</a> | 
+                <a href="mailto:tech@axinova.ai.kr" style="color: var(--gold);">✉ tech@axinova.ai.kr</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        const themeIcon = themeToggle.querySelector('i');
+
+        // Check for saved theme preference or default to 'light'
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                themeIcon.className = 'fas fa-sun';
+            } else {
+                themeIcon.className = 'fas fa-moon';
+            }
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인 페이지 관리 - AXINOVA CMS</title>
+    <link rel="icon" type="image/png" href="../logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin-dashboard.css">
+    <link rel="stylesheet" href="css/admin-content.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="../logo.png" alt="AXINOVA Logo" class="sidebar-logo">
+            <h2>AXINOVA CMS</h2>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>대시보드</span>
+            </a>
+            <a href="content-manager.html" class="nav-item active">
+                <i class="fas fa-file-alt"></i>
+                <span>메인 페이지 관리</span>
+            </a>
+            <a href="program-manager.html" class="nav-item">
+                <i class="fas fa-graduation-cap"></i>
+                <span>프로그램 관리</span>
+            </a>
+            <a href="blog-manager.html" class="nav-item">
+                <i class="fas fa-blog"></i>
+                <span>블로그 관리</span>
+            </a>
+            <a href="user-manager.html" class="nav-item">
+                <i class="fas fa-users"></i>
+                <span>회원 관리</span>
+            </a>
+            <a href="media-library.html" class="nav-item">
+                <i class="fas fa-images"></i>
+                <span>미디어 라이브러리</span>
+            </a>
+            <a href="settings.html" class="nav-item">
+                <i class="fas fa-cog"></i>
+                <span>사이트 설정</span>
+            </a>
+            <div class="nav-divider"></div>
+            <a href="../index.html" class="nav-item" target="_blank">
+                <i class="fas fa-external-link-alt"></i>
+                <span>사이트 보기</span>
+            </a>
+            <a href="#" class="nav-item" onclick="handleLogout()">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>로그아웃</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="topbar">
+            <button class="menu-toggle" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <h1 class="page-title">메인 페이지 관리</h1>
+            <div class="topbar-actions">
+                <button class="btn-preview" onclick="previewChanges()">
+                    <i class="fas fa-eye"></i>
+                    미리보기
+                </button>
+                <button class="btn-save" onclick="saveAllChanges()">
+                    <i class="fas fa-save"></i>
+                    저장
+                </button>
+            </div>
+        </header>
+
+        <!-- Content Manager -->
+        <div class="content-manager-container">
+            <!-- Tabs -->
+            <div class="tabs-container">
+                <button class="tab-btn active" data-tab="hero">히어로 섹션</button>
+                <button class="tab-btn" data-tab="about">소개</button>
+                <button class="tab-btn" data-tab="features">특징</button>
+                <button class="tab-btn" data-tab="stats">통계</button>
+                <button class="tab-btn" data-tab="contact">연락처</button>
+            </div>
+
+            <!-- Tab Content: Hero Section -->
+            <div class="tab-content active" id="tab-hero">
+                <div class="section-card">
+                    <h3 class="section-title">
+                        <i class="fas fa-rocket"></i>
+                        히어로 섹션 편집
+                    </h3>
+
+                    <div class="form-group">
+                        <label>메인 타이틀</label>
+                        <input type="text" id="heroTitle" class="form-input" 
+                               placeholder="예: AI의 AX 시대를 선도하는">
+                    </div>
+
+                    <div class="form-group">
+                        <label>서브 타이틀</label>
+                        <input type="text" id="heroSubtitle" class="form-input" 
+                               placeholder="예: AXINOVA 평생교육원">
+                    </div>
+
+                    <div class="form-group">
+                        <label>설명 문구</label>
+                        <textarea id="heroDescription" class="form-textarea" rows="4"
+                                  placeholder="히어로 섹션의 설명 문구를 입력하세요"></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>첫 번째 버튼 텍스트</label>
+                            <input type="text" id="heroBtn1Text" class="form-input" 
+                                   placeholder="예: 교육 프로그램 보기">
+                        </div>
+                        <div class="form-group">
+                            <label>첫 번째 버튼 링크</label>
+                            <input type="text" id="heroBtn1Link" class="form-input" 
+                                   placeholder="예: #programs">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>두 번째 버튼 텍스트</label>
+                            <input type="text" id="heroBtn2Text" class="form-input" 
+                                   placeholder="예: 문의하기">
+                        </div>
+                        <div class="form-group">
+                            <label>두 번째 버튼 링크</label>
+                            <input type="text" id="heroBtn2Link" class="form-input" 
+                                   placeholder="예: #contact">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Content: About Section -->
+            <div class="tab-content" id="tab-about">
+                <div class="section-card">
+                    <h3 class="section-title">
+                        <i class="fas fa-info-circle"></i>
+                        소개 섹션 편집
+                    </h3>
+
+                    <div class="form-group">
+                        <label>섹션 제목</label>
+                        <input type="text" id="aboutTitle" class="form-input" 
+                               placeholder="예: AXINOVA 평생교육원을 소개합니다">
+                    </div>
+
+                    <div class="form-group">
+                        <label>서브 제목</label>
+                        <input type="text" id="aboutSubtitle" class="form-input" 
+                               placeholder="예: AI 교육 전문 기관">
+                    </div>
+
+                    <div class="form-group">
+                        <label>메인 설명</label>
+                        <textarea id="aboutDescription" class="form-textarea" rows="6"
+                                  placeholder="기관 소개 내용을 입력하세요"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>추가 설명 (선택 사항)</label>
+                        <textarea id="aboutExtraDescription" class="form-textarea" rows="4"
+                                  placeholder="추가 설명이 필요하면 입력하세요"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Content: Features Section -->
+            <div class="tab-content" id="tab-features">
+                <div class="section-card">
+                    <h3 class="section-title">
+                        <i class="fas fa-star"></i>
+                        특징 섹션 편집
+                    </h3>
+
+                    <div class="form-group">
+                        <label>섹션 제목</label>
+                        <input type="text" id="featuresTitle" class="form-input" 
+                               placeholder="예: 왜 AXINOVA인가?">
+                    </div>
+
+                    <div id="featuresList">
+                        <!-- 특징 아이템들이 동적으로 추가됨 -->
+                    </div>
+
+                    <button class="btn-add" onclick="addFeatureItem()">
+                        <i class="fas fa-plus"></i>
+                        특징 추가
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tab Content: Stats Section -->
+            <div class="tab-content" id="tab-stats">
+                <div class="section-card">
+                    <h3 class="section-title">
+                        <i class="fas fa-chart-bar"></i>
+                        통계 섹션 편집
+                    </h3>
+
+                    <div id="statsList">
+                        <!-- 통계 아이템들이 동적으로 추가됨 -->
+                    </div>
+
+                    <button class="btn-add" onclick="addStatItem()">
+                        <i class="fas fa-plus"></i>
+                        통계 추가
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tab Content: Contact Section -->
+            <div class="tab-content" id="tab-contact">
+                <div class="section-card">
+                    <h3 class="section-title">
+                        <i class="fas fa-phone"></i>
+                        연락처 섹션 편집
+                    </h3>
+
+                    <div class="form-group">
+                        <label>섹션 제목</label>
+                        <input type="text" id="contactTitle" class="form-input" 
+                               placeholder="예: 문의하기">
+                    </div>
+
+                    <div class="form-group">
+                        <label>전화번호</label>
+                        <input type="text" id="contactPhone" class="form-input" 
+                               placeholder="예: 070-8657-1948">
+                    </div>
+
+                    <div class="form-group">
+                        <label>이메일</label>
+                        <input type="email" id="contactEmail" class="form-input" 
+                               placeholder="예: info@axinova.ai.kr">
+                    </div>
+
+                    <div class="form-group">
+                        <label>주소</label>
+                        <input type="text" id="contactAddress" class="form-input" 
+                               placeholder="예: 충남 천안시 서북구 불당17길 27">
+                    </div>
+
+                    <div class="form-group">
+                        <label>운영 시간</label>
+                        <textarea id="contactHours" class="form-textarea" rows="3"
+                                  placeholder="예: 평일 09:00 - 18:00"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/admin-auth.js"></script>
+    <script src="js/admin-dashboard.js"></script>
+    <script src="js/admin-content.js"></script>
+</body>
+</html>

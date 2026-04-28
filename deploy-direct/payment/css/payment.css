@@ -1,0 +1,9 @@
+body { font-family: 'Noto Sans KR', sans-serif; background: #f8fafc; padding: 40px; }
+.payment-container { max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: 16px; }
+.course-info { padding: 30px; background: #f8fafc; border-radius: 12px; margin-bottom: 30px; }
+.price { font-size: 32px; font-weight: 700; color: #667eea; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 600; }
+.form-group select { width: 100%; padding: 12px; border: 1px solid #e2e8f0; border-radius: 8px; }
+.btn-pay { width: 100%; padding: 16px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; border-radius: 10px; font-size: 18px; font-weight: 700; cursor: pointer; }
+.pg-info { text-align: center; margin-top: 20px; color: #64748b; font-size: 12px; }

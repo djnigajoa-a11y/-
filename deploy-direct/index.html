@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AXINOVA 평생교육원 - AI 전문 에이전시 및 교육 브랜드. Google Gemini 기반 실시간 AI 학습 도우미, 프롬프트 엔지니어링, AI 자격인증 대비 실무 중심 교육.">
+    <meta name="keywords" content="AI 교육, AI 자격인증, 프롬프트 엔지니어링, AI 에이전시, AI 전문교육, 인공지능 실습, Google Gemini, AXINOVA">
+    <title>AXINOVA 평생교육원 - AI 전문 에이전시 및 교육 브랜드</title>
+    
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.axinova.ai.kr">
+    <meta property="og:title" content="AXINOVA 평생교육원 - AI 전문 에이전시 및 교육">
+    <meta property="og:description" content="Google Gemini 기반 AI 학습 도우미와 실무 중심 AI 교육 프로그램. 프롬프트 엔지니어링, AI 자격인증 대비.">
+    <meta property="og:image" content="https://www.axinova.ai.kr/logo.png">
+    <meta property="og:site_name" content="AXINOVA 평생교육원">
+    <meta property="og:locale" content="ko_KR">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.axinova.ai.kr">
+    <meta name="twitter:title" content="AXINOVA 평생교육원 - AI 전문 에이전시 및 교육">
+    <meta name="twitter:description" content="Google Gemini 기반 AI 학습 도우미와 실무 중심 AI 교육.">
+    <meta name="twitter:image" content="https://www.axinova.ai.kr/logo.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.axinova.ai.kr">
+    
+    <!-- Schema.org JSON-LD for Rich Snippets -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "AXINOVA 평생교육원",
+      "alternateName": "AXINOVA AI Academy",
+      "url": "https://www.axinova.ai.kr",
+      "logo": "https://www.axinova.ai.kr/logo.png",
+      "description": "AI 전문 에이전시 및 교육 브랜드. Google Gemini 기반 실시간 AI 학습 도우미, 프롬프트 엔지니어링, AI 자격인증 교육.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "KR"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+82-70-8657-1948",
+        "contactType": "customer service",
+        "email": "tech@axinova.ai.kr",
+        "availableLanguage": ["Korean", "English"]
+      },
+      "sameAs": [
+        "https://www.axinova.ai.kr"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "category": "AI Education & Training"
+      }
+    }
+    </script>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Dropdown Menu - Inline Critical CSS */
+        .nav-dropdown {
+            position: relative !important;
+        }
+        .nav-dropdown .dropdown-menu {
+            display: none !important;
+            position: absolute !important;
+            top: 100% !important;
+            left: 0 !important;
+            background: white !important;
+            min-width: 200px !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+            border-radius: 8px !important;
+            padding: 8px 0 !important;
+            margin-top: 8px !important;
+            z-index: 9999 !important;
+            list-style: none !important;
+            opacity: 0 !important;
+            transform: translateY(-10px) !important;
+            transition: opacity 0.3s ease, transform 0.3s ease !important;
+            pointer-events: none !important;
+        }
+        /* Show dropdown on hover OR when active class is added */
+        .nav-dropdown:hover .dropdown-menu,
+        .nav-dropdown.active .dropdown-menu {
+            display: block !important;
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+            pointer-events: auto !important;
+        }
+        .nav-dropdown .dropdown-menu li {
+            list-style: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        .nav-dropdown .dropdown-menu a {
+            display: block !important;
+            padding: 10px 20px !important;
+            color: #333 !important;
+            text-decoration: none !important;
+            font-size: 0.95rem !important;
+            transition: all 0.2s ease !important;
+            white-space: nowrap !important;
+        }
+        .nav-dropdown .dropdown-menu a:hover,
+        .nav-dropdown .dropdown-menu a.active {
+            background: #f5f5f5 !important;
+            color: #7A1F1F !important;
+            padding-left: 24px !important;
+        }
+        /* Chevron icon animation */
+        .nav-dropdown .nav-link .fa-chevron-down {
+            transition: transform 0.3s ease !important;
+            font-size: 0.75em !important;
+            margin-left: 4px !important;
+        }
+        .nav-dropdown:hover .nav-link .fa-chevron-down,
+        .nav-dropdown.active .nav-link .fa-chevron-down {
+            transform: rotate(180deg) !important;
+        }
+    </style>
+    <!-- Page Agent CSS -->
+    <!-- AI Assistant temporarily disabled for static deployment -->
+    <!-- Dark Mode CSS -->
+    <link rel="stylesheet" href="dark-mode.css">
+    <!-- Banner CSS -->
+    <link rel="stylesheet" href="banners.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <!-- 상단 메뉴바: 로고 + 메인 메뉴 + 로그인/회원가입 -->
+            <div class="nav-wrapper nav-top">
+                <div class="logo">
+                    <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+                        <img src="logo.png" alt="AXINOVA 평생교육원" class="logo-img">
+                        <div class="logo-text">
+                            <span class="logo-name">AXINOVA</span>
+                            <span class="logo-subtitle">평생교육원</span>
+                        </div>
+                    </a>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" class="nav-link">홈</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#about" class="nav-link">소개 <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="about/educator.html">평생교육사</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#programs" class="nav-link">교육 프로그램</a></li>
+                    <li><a href="lab/ai-practice-gateway.html" class="nav-link">🚀 AI 실습 게이트웨이</a></li>
+                    <li><a href="#features" class="nav-link">특징</a></li>
+                    <li><a href="#roadmap" class="nav-link">로드맵</a></li>
+                    <li><a href="https://www.axinova.news" class="nav-link external-link" target="_blank" rel="noopener noreferrer">이노바저널 <i class="fas fa-external-link-alt"></i></a></li>
+                    <li><a href="#contact" class="nav-link">문의</a></li>
+                </ul>
+                <div class="nav-auth-buttons">
+                    <a href="login.html" class="btn-login">로그인</a>
+                    <a href="register.html" class="btn-register">회원가입</a>
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            
+            <!-- 하단 서비스 메뉴바: 원격지원, 장바구니/결제, 증명서발급, My강의실 -->
+            <div class="nav-wrapper nav-bottom">
+                <div class="service-menu-bar">
+                    <a href="#" class="service-menu-item" title="원격지원">
+                        <i class="fas fa-headset"></i>
+                        <span>원격지원</span>
+                    </a>
+                    <a href="#" class="service-menu-item" title="장바구니/결제">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>장바구니/결제</span>
+                    </a>
+                    <a href="#" class="service-menu-item" title="증명서발급">
+                        <i class="fas fa-print"></i>
+                        <span>증명서발급</span>
+                    </a>
+                    <a href="#" class="service-menu-item" title="My강의실">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <span>My강의실</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section (New Banner) -->
+    <section class="hero-banner" id="home">
+        <!-- 뱃지 -->
+        <div class="hero-badge">
+            <span class="dot"></span>
+            NEW &nbsp;|&nbsp; Page Agent 기술 도입 완료
+        </div>
+
+        <!-- 상단 태그라인 -->
+        <p class="hero-pre">AI를 배우는 곳을 찾고 계신가요?</p>
+
+        <!-- 메인 타이틀 -->
+        <h1 class="hero-title">
+            <div class="line1">배우는 것에서 끝나지 않습니다.</div>
+            <div class="line2">우리는 AI로 직접 운영합니다.</div>
+        </h1>
+
+        <!-- 서브타이틀 -->
+        <p class="hero-subtitle">
+            지금 이 순간, 당신은 이미 AI를 경험하고 있습니다.
+        </p>
+
+        <!-- 브랜드 인용구 -->
+        <blockquote class="hero-quote">
+            AXINOVA는 단순히 AI를 가르치는 곳이 아닙니다.<br>
+            <strong>AI가 살아 숨 쉬는 교육 플랫폼입니다.</strong>
+        </blockquote>
+
+        <!-- CTA 버튼 그룹 -->
+        <div class="hero-cta-group">
+            <a href="#" class="btn-primary" onclick="if(window.aiAssistant) window.aiAssistant.toggle(); return false;">🤖 지금 AI 체험하기 →</a>
+            <a href="#programs" class="btn-secondary">📚 교육 과정 보기 →</a>
+        </div>
+
+        <!-- 통계 -->
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="hero-stat-num">30+</div>
+                <div class="hero-stat-label">전문 자격증 과정</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-num">100%</div>
+                <div class="hero-stat-label">국비지원 가능</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-num">2026</div>
+                <div class="hero-stat-label">공공 인증 대비</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-num">AI</div>
+                <div class="hero-stat-label">Native Platform</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">ABOUT US</span>
+                <h2 class="section-title">AXINOVA가 만드는 AI 미래</h2>
+                <p class="section-description">
+                    급변하는 AI의 AX 시대, AXINOVA 평생교육원은 단순한 이론 교육을 넘어<br>
+                    실무에서 바로 적용 가능한 AI 역량을 갖춘 전문가를 양성합니다.
+                </p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>우리의 비전</h3>
+                    <p>
+                        2026년 정부 주도 공공 AI 자격인증제 시행을 앞두고,
+                        500여 개 난립한 민간 자격증 시장의 혼란을 해소하고
+                        진정한 AI 전문가를 양성하는 교육 기관으로 자리매김합니다.
+                    </p>
+                </div>
+
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>차별화된 접근</h3>
+                    <p>
+                        단기 속성 자격증이 아닌, AGI 네비게이터 10대 핵심 기술을
+                        중심으로 한 체계적이고 심층적인 커리큘럼을 제공하여
+                        실무 현장에서 즉시 활용 가능한 역량을 배양합니다.
+                    </p>
+                </div>
+
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>교육 철학</h3>
+                    <p>
+                        AI는 단순한 기술이 아닌 미래 산업의 핵심입니다.
+                        우리는 학습자가 AI 기술을 깊이 이해하고, 윤리적으로 활용하며,
+                        끊임없이 발전하는 AI 생태계에 적응할 수 있도록 지원합니다.
+                    </p>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">전문 자격증 과정</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">AGI 핵심 기술</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2026</div>
+                    <div class="stat-label">공공 인증 대비</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">실무 중심 교육</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Native Platform Banner (Split Layout) -->
+    <section style="padding: 80px 40px; background: #0a0a0f;">
+        <div class="split-banner">
+            <!-- 왼쪽: 텍스트 영역 -->
+            <div class="split-left">
+                <span class="split-tag">🚀 AI Native Platform</span>
+                <h2 class="split-title">
+                    AI를 가르치는 곳,<br>
+                    <span>AI로 직접 움직입니다</span>
+                </h2>
+                <p class="split-desc">
+                    AXINOVA 평생교육원은 알리바바 <strong>Page Agent</strong> 기술을 사이트에 직접 도입했습니다.
+                    수강생이 사이트에 <strong>접속하는 순간부터</strong> 텍스트 한 줄로 강의를 찾고, 수강을 신청하고, AI 도구를 체험합니다.
+                    이것이 AXINOVA가 말하는 <strong>'실무 중심 AI 교육'</strong>의 의미입니다.
+                </p>
+                <ul class="feature-list">
+                    <li>
+                        <span class="icon">🔍</span>
+                        자연어로 원하는 강의를 즉시 탐색
+                    </li>
+                    <li>
+                        <span class="icon">📝</span>
+                        한 문장으로 수강 신청 자동 완료
+                    </li>
+                    <li>
+                        <span class="icon">⚡</span>
+                        접속 즉시 AI 기술을 몸으로 체험
+                    </li>
+                    <li>
+                        <span class="icon">🎓</span>
+                        교육원 자체가 살아있는 AI 실습장
+                    </li>
+                </ul>
+                <a href="#" class="btn-primary" onclick="if(window.pageAgent) window.pageAgent.togglePanel(); return false;">🤖 직접 써보기 →</a>
+            </div>
+
+            <!-- 오른쪽: AI 채팅 UI -->
+            <div class="split-right">
+                <div class="chat-window">
+                    <div class="chat-header">
+                        <div class="chat-avatar">🤖</div>
+                        <div class="chat-header-info">
+                            <div class="name">AXINOVA AI 도우미</div>
+                            <div class="status">온라인 · 언제든 도와드립니다</div>
+                        </div>
+                    </div>
+                    <div class="chat-body">
+                        <div class="msg user">
+                            <div class="msg-bubble">초보자에게 맞는 AI 과정 추천해줘 😊</div>
+                        </div>
+                        <div class="msg bot">
+                            <div class="msg-bubble">
+                                안녕하세요! 현재 수준에 맞는 추천 과정을 찾았습니다 ✨
+                                <div class="courses">
+                                    <div class="course-chip">🎯 프롬프트 엔지니어링 전문가 · 6주 · 초급</div>
+                                    <div class="course-chip">⚡ 생성형 AI 사무자동화 · 8주 · 국비지원</div>
+                                    <div class="course-chip">🤖 노코드 AI 챗봇 구축 · 8주 · 초급</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="msg user">
+                            <div class="msg-bubble">첫 번째 과정 바로 신청할게요!</div>
+                        </div>
+                        <div class="msg bot">
+                            <div class="msg-bubble">
+                                <div class="typing-dot">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-input-bar">
+                        <span>강의나 수강 신청에 대해 물어보세요...</span>
+                        <div class="chat-send-btn">➤</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs" id="programs">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">PROGRAMS</span>
+                <h2 class="section-title">교육 프로그램</h2>
+                <p class="section-description">
+                    AI 산업의 모든 영역을 아우르는 체계적이고 전문적인 교육 과정
+                </p>
+            </div>
+
+            <div class="program-tabs">
+                <button class="tab-btn active" data-tab="core">핵심 프로그램</button>
+                <button class="tab-btn" data-tab="government">국비지원 AI 트레이닝</button>
+                <button class="tab-btn" data-tab="tech">기술/개발</button>
+                <button class="tab-btn" data-tab="business">비즈니스/응용</button>
+                <button class="tab-btn" data-tab="ethics">윤리/거버넌스</button>
+            </div>
+
+            <!-- Core Programs -->
+            <div class="tab-content active" id="core">
+                <div class="program-highlight">
+                    <div class="program-highlight-content">
+                        <h3>AGI 네비게이터 10대 핵심 기술</h3>
+                        <p class="program-intro">
+                            2026년 공공 AI 자격인증 시대를 대비한 전략적 교육 프로그램
+                        </p>
+                        <ul class="core-skills">
+                            <li><i class="fas fa-check-circle"></i> 멀티모달 AI 시스템 설계</li>
+                            <li><i class="fas fa-check-circle"></i> 대규모 언어 모델(LLM) 활용</li>
+                            <li><i class="fas fa-check-circle"></i> AI 에이전트 개발</li>
+                            <li><i class="fas fa-check-circle"></i> 프롬프트 엔지니어링</li>
+                            <li><i class="fas fa-check-circle"></i> RAG (검색 증강 생성)</li>
+                            <li><i class="fas fa-check-circle"></i> 생성형 AI 응용</li>
+                            <li><i class="fas fa-check-circle"></i> AI 윤리 및 거버넌스</li>
+                            <li><i class="fas fa-check-circle"></i> 하이퍼 자동화</li>
+                            <li><i class="fas fa-check-circle"></i> AI 보안 및 프라이버시</li>
+                            <li><i class="fas fa-check-circle"></i> AI 비즈니스 전략</li>
+                        </ul>
+                    </div>
+                    <div class="program-highlight-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Government-Funded AI Training Programs -->
+            <div class="tab-content" id="government">
+                <div class="program-highlight">
+                    <div class="program-highlight-content">
+                        <h3>🏛️ K-AI 트레이닝: 국비지원 실무형 교육과정</h3>
+                        <p class="program-intro">
+                            고용노동부·지자체 국비지원 100% 무료 교육<br>
+                            실무 프로젝트 중심 · 결과물 포트폴리오 완성 · 취업/재직자 역량강화
+                        </p>
+                        <div class="program-benefits" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px;">
+                            <div style="background: rgba(139, 47, 47, 0.1); padding: 15px; border-radius: 10px; text-align: center;">
+                                <i class="fas fa-won-sign" style="font-size: 2rem; color: var(--primary-color); margin-bottom: 10px;"></i>
+                                <div style="font-weight: 600;">100% 국비지원</div>
+                                <div style="font-size: 0.9rem; color: #666;">수강료 전액 무료</div>
+                            </div>
+                            <div style="background: rgba(139, 47, 47, 0.1); padding: 15px; border-radius: 10px; text-align: center;">
+                                <i class="fas fa-briefcase" style="font-size: 2rem; color: var(--primary-color); margin-bottom: 10px;"></i>
+                                <div style="font-weight: 600;">실무 중심</div>
+                                <div style="font-size: 0.9rem; color: #666;">현장 프로젝트 수행</div>
+                            </div>
+                            <div style="background: rgba(139, 47, 47, 0.1); padding: 15px; border-radius: 10px; text-align: center;">
+                                <i class="fas fa-folder-open" style="font-size: 2rem; color: var(--primary-color); margin-bottom: 10px;"></i>
+                                <div style="font-weight: 600;">포트폴리오</div>
+                                <div style="font-size: 0.9rem; color: #666;">실제 산출물 제작</div>
+                            </div>
+                            <div style="background: rgba(139, 47, 47, 0.1); padding: 15px; border-radius: 10px; text-align: center;">
+                                <i class="fas fa-certificate" style="font-size: 2rem; color: var(--primary-color); margin-bottom: 10px;"></i>
+                                <div style="font-weight: 600;">수료증 발급</div>
+                                <div style="font-size: 0.9rem; color: #666;">평생교육원 인증</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="program-grid">
+                    <!-- Program 1: 사무 자동화 -->
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="program-badge" style="position: absolute; top: 15px; right: 15px; background: var(--gold); color: var(--dark); padding: 5px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">국비지원</div>
+                        <h4>생성형 AI 사무 자동화</h4>
+                        <p class="program-subtitle" style="color: var(--primary-color); font-weight: 600; margin-bottom: 10px;">사무(업무혁신)</p>
+                        <p>문서·회의록·기획안 템플릿 완성 및 업무 자동화 워크플로 구축</p>
+                        <ul class="program-features" style="list-style: none; padding: 0; margin: 15px 0; font-size: 0.9rem;">
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>문서/보고/회의록 자동화</li>
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>템플릿 기반 업무 생산성 향상</li>
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>업무 산출물 5종 + 워크플로 1종</li>
+                        </ul>
+                        <div class="program-meta">
+                            <span><i class="fas fa-clock"></i> 8주</span>
+                            <span><i class="fas fa-signal"></i> 초급</span>
+                        </div>
+                    </div>
+
+                    <!-- Program 2: 데이터 분석 -->
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div class="program-badge" style="position: absolute; top: 15px; right: 15px; background: var(--gold); color: var(--dark); padding: 5px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">국비지원</div>
+                        <h4>AI 활용 데이터분석 취업형</h4>
+                        <p class="program-subtitle" style="color: var(--primary-color); font-weight: 600; margin-bottom: 10px;">데이터(분석)</p>
+                        <p>정제→분석→대시보드 포트폴리오 제작 및 AI 리포트 자동화</p>
+                        <ul class="program-features" style="list-style: none; padding: 0; margin: 15px 0; font-size: 0.9rem;">
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>스프레드시트·SQL·Python 실무</li>
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>AI 리포트 자동화 시스템</li>
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>대시보드 1종 + 분석 리포트 2종</li>
+                        </ul>
+                        <div class="program-meta">
+                            <span><i class="fas fa-clock"></i> 12주</span>
+                            <span><i class="fas fa-signal"></i> 중급</span>
+                        </div>
+                    </div>
+
+                    <!-- Program 3: CS 챗봇 -->
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="program-badge" style="position: absolute; top: 15px; right: 15px; background: var(--gold); color: var(--dark); padding: 5px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">국비지원</div>
+                        <h4>노코드 AI 챗봇 구축</h4>
+                        <p class="program-subtitle" style="color: var(--primary-color); font-weight: 600; margin-bottom: 10px;">CS(상담)</p>
+                        <p>FAQ·시나리오·운영지표 기반 상담 챗봇 MVP 제작</p>
+                        <ul class="program-features" style="list-style: none; padding: 0; margin: 15px 0; font-size: 0.9rem;">
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>지식베이스·시나리오 설계</li>
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>품질관리·운영 KPI 설정</li>
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>챗봇 MVP + 운영 매뉴얼</li>
+                        </ul>
+                        <div class="program-meta">
+                            <span><i class="fas fa-clock"></i> 8주</span>
+                            <span><i class="fas fa-signal"></i> 초급</span>
+                        </div>
+                    </div>
+
+                    <!-- Program 4: RPA 자동화 -->
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div class="program-badge" style="position: absolute; top: 15px; right: 15px; background: var(--gold); color: var(--dark); padding: 5px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">국비지원</div>
+                        <h4>RPA+생성형 AI 자동화</h4>
+                        <p class="program-subtitle" style="color: var(--primary-color); font-weight: 600; margin-bottom: 10px;">사무/운영(프로세스)</p>
+                        <p>반복업무 봇 구축 및 시간절감(ROI) 성과 보고서 작성</p>
+                        <ul class="program-features" style="list-style: none; padding: 0; margin: 15px 0; font-size: 0.9rem;">
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>반복업무 자동화·예외처리</li>
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>로그/모니터링·ROI 산정</li>
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>자동화 봇 2종 + ROI 리포트</li>
+                        </ul>
+                        <div class="program-meta">
+                            <span><i class="fas fa-clock"></i> 10주</span>
+                            <span><i class="fas fa-signal"></i> 중급</span>
+                        </div>
+                    </div>
+
+                    <!-- Program 5: 디지털 마케팅 -->
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <div class="program-badge" style="position: absolute; top: 15px; right: 15px; background: var(--gold); color: var(--dark); padding: 5px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">국비지원</div>
+                        <h4>AI 디지털 마케팅 실무</h4>
+                        <p class="program-subtitle" style="color: var(--primary-color); font-weight: 600; margin-bottom: 10px;">마케팅</p>
+                        <p>AI 콘텐츠·광고·성과분석 캠페인 패키지 완성</p>
+                        <ul class="program-features" style="list-style: none; padding: 0; margin: 15px 0; font-size: 0.9rem;">
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>카피/소재 제작·광고 운영</li>
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>A/B 테스트·성과 리포팅</li>
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>캠페인 패키지(소재·카피·리포트)</li>
+                        </ul>
+                        <div class="program-meta">
+                            <span><i class="fas fa-clock"></i> 10주</span>
+                            <span><i class="fas fa-signal"></i> 중급</span>
+                        </div>
+                    </div>
+
+                    <!-- Program 6: UX/UI 기획 -->
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-pencil-ruler"></i>
+                        </div>
+                        <div class="program-badge" style="position: absolute; top: 15px; right: 15px; background: var(--gold); color: var(--dark); padding: 5px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">국비지원</div>
+                        <h4>AI UX/UI 기획·디자인</h4>
+                        <p class="program-subtitle" style="color: var(--primary-color); font-weight: 600; margin-bottom: 10px;">개발/기획(프로덕트)</p>
+                        <p>프로토타입·케이스스터디 포트폴리오 제작</p>
+                        <ul class="program-features" style="list-style: none; padding: 0; margin: 15px 0; font-size: 0.9rem;">
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>사용자 리서치·와이어프레임</li>
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>프로토타입·AI 테스트 가속</li>
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>프로토타입 1종 + UX 케이스스터디</li>
+                        </ul>
+                        <div class="program-meta">
+                            <span><i class="fas fa-clock"></i> 10주</span>
+                            <span><i class="fas fa-signal"></i> 중급</span>
+                        </div>
+                    </div>
+
+                    <!-- Program 7: 영상 제작 -->
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <div class="program-badge" style="position: absolute; top: 15px; right: 15px; background: var(--gold); color: var(--dark); padding: 5px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">국비지원</div>
+                        <h4>AI 영상·숏폼 제작</h4>
+                        <p class="program-subtitle" style="color: var(--primary-color); font-weight: 600; margin-bottom: 10px;">마케팅/미디어</p>
+                        <p>기획→대본→편집→썸네일까지 자동화 워크플로 완성</p>
+                        <ul class="program-features" style="list-style: none; padding: 0; margin: 15px 0; font-size: 0.9rem;">
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>숏폼 기획·대본/자막 제작</li>
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>편집 워크플로·채널 운영</li>
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>영상 10편 + 쇼릴 + 운영계획서</li>
+                        </ul>
+                        <div class="program-meta">
+                            <span><i class="fas fa-clock"></i> 12주</span>
+                            <span><i class="fas fa-signal"></i> 중급</span>
+                        </div>
+                    </div>
+
+                    <!-- Program 8: 코딩 입문 -->
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="program-badge" style="position: absolute; top: 15px; right: 15px; background: var(--gold); color: var(--dark); padding: 5px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">국비지원</div>
+                        <h4>AI 코딩 입문+포트폴리오</h4>
+                        <p class="program-subtitle" style="color: var(--primary-color); font-weight: 600; margin-bottom: 10px;">개발</p>
+                        <p>웹/앱 개발·디버깅·테스트 포트폴리오 완성</p>
+                        <ul class="program-features" style="list-style: none; padding: 0; margin: 15px 0; font-size: 0.9rem;">
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>기초 개발역량 + AI 활용</li>
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>디버깅/리팩토링/테스트</li>
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>웹앱 1~2개 + GitHub 포트폴리오</li>
+                        </ul>
+                        <div class="program-meta">
+                            <span><i class="fas fa-clock"></i> 14주</span>
+                            <span><i class="fas fa-signal"></i> 초급</span>
+                        </div>
+                    </div>
+
+                    <!-- Program 9: QA 테스트 -->
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-check-double"></i>
+                        </div>
+                        <div class="program-badge" style="position: absolute; top: 15px; right: 15px; background: var(--gold); color: var(--dark); padding: 5px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">국비지원</div>
+                        <h4>AI 품질관리·테스트 자동화</h4>
+                        <p class="program-subtitle" style="color: var(--primary-color); font-weight: 600; margin-bottom: 10px;">개발/QA</p>
+                        <p>테스트 전략서·자동화 스크립트 완성</p>
+                        <ul class="program-features" style="list-style: none; padding: 0; margin: 15px 0; font-size: 0.9rem;">
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>테스트 설계·결함관리</li>
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>자동화·AI 테스트케이스 생성</li>
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>전략서 + 스크립트 + 리포트</li>
+                        </ul>
+                        <div class="program-meta">
+                            <span><i class="fas fa-clock"></i> 10주</span>
+                            <span><i class="fas fa-signal"></i> 중급</span>
+                        </div>
+                    </div>
+
+                    <!-- Program 10: AI 윤리 -->
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="program-badge" style="position: absolute; top: 15px; right: 15px; background: var(--gold); color: var(--dark); padding: 5px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">국비지원</div>
+                        <h4>AI 윤리·보안·개인정보 실무</h4>
+                        <p class="program-subtitle" style="color: var(--primary-color); font-weight: 600; margin-bottom: 10px;">공공/기업(운영)</p>
+                        <p>조직용 가이드·체크리스트 구축 및 교육체계 수립</p>
+                        <ul class="program-features" style="list-style: none; padding: 0; margin: 15px 0; font-size: 0.9rem;">
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>개인정보/저작권/보안</li>
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>내부 가이드·교육체계</li>
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>AI 활용 가이드 + 교육자료 + 체크리스트</li>
+                        </ul>
+                        <div class="program-meta">
+                            <span><i class="fas fa-clock"></i> 8주</span>
+                            <span><i class="fas fa-signal"></i> 초급</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2026 AI 마케팅 고수익 5대 모델 섹션 -->
+                <div style="margin-top: 80px;">
+                    <div class="section-header" style="text-align: center; margin-bottom: 50px;">
+                        <span class="section-tag" style="background: linear-gradient(135deg, #7A1F1F, #A63939); color: white; padding: 8px 20px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; display: inline-block; margin-bottom: 20px;">
+                            2026 AI 마케팅 트렌드
+                        </span>
+                        <h2 class="section-title" style="font-size: 2.5rem; color: var(--dark); margin-bottom: 15px;">
+                            실전 AI 마케팅 비즈니스 모델
+                        </h2>
+                        <p class="section-description" style="font-size: 1.1rem; color: var(--gray); max-width: 800px; margin: 0 auto; line-height: 1.8;">
+                            HubSpot·Deloitte·Gartner 보고서 기반<br>
+                            <strong style="color: var(--primary-color);">월 2,400만~1억 3천만 원 recurring revenue 창출 가능</strong>
+                        </p>
+                    </div>
+
+                    <div class="program-grid">
+                        <!-- Model 1: Multi-Agent Orchestration -->
+                        <div class="program-card" style="border: 2px solid var(--primary-color); box-shadow: 0 8px 24px rgba(122, 31, 31, 0.15);">
+                            <div class="program-icon" style="background: linear-gradient(135deg, #7A1F1F, #A63939);">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <div class="program-badge" style="position: absolute; top: 15px; right: 15px; background: #28a745; color: white; padding: 5px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">
+                                월 $28K~115K
+                            </div>
+                            <h4>Multi-Agent Orchestration Agency</h4>
+                            <p class="program-subtitle" style="color: var(--primary-color); font-weight: 600; margin-bottom: 10px;">
+                                AI 에이전트 오케스트레이션
+                            </p>
+                            <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">
+                                HubSpot식 multi-agent workflow로 end-to-end 캠페인 자동화
+                            </p>
+                            <ul class="program-features" style="list-style: none; padding: 0; margin: 15px 0; font-size: 0.9rem;">
+                                <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>Claude + CrewAI orchestration</li>
+                                <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>DTC 브랜드 5~10곳 대행</li>
+                                <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>월 retainer $3K~14K + ROAS 수수료</li>
+                            </ul>
+                            <div class="program-meta" style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #e0e0e0;">
+                                <span><i class="fas fa-graduation-cap"></i> AI 에이전트 설계 전문가 과정</span>
+                            </div>
+                        </div>
+
+                        <!-- Model 2: Measurable AI Value -->
+                        <div class="program-card" style="border: 2px solid var(--primary-color); box-shadow: 0 8px 24px rgba(122, 31, 31, 0.15);">
+                            <div class="program-icon" style="background: linear-gradient(135deg, #7A1F1F, #A63939);">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="program-badge" style="position: absolute; top: 15px; right: 15px; background: #28a745; color: white; padding: 5px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">
+                                월 $26K~105K
+                            </div>
+                            <h4>Measurable AI Value Framework</h4>
+                            <p class="program-subtitle" style="color: var(--primary-color); font-weight: 600; margin-bottom: 10px;">
+                                AI ROI 측정 및 대시보드
+                            </p>
+                            <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">
+                                Deloitte식 standardized ROI·attribution 대시보드 구축
+                            </p>
+                            <ul class="program-features" style="list-style: none; padding: 0; margin: 15px 0; font-size: 0.9rem;">
+                                <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>No-code dashboard + API 연동</li>
+                                <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>SMB 8곳 대상 audit 컨설팅</li>
+                                <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>실시간 AI 투자 입증 시스템</li>
+                            </ul>
+                            <div class="program-meta" style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #e0e0e0;">
+                                <span><i class="fas fa-graduation-cap"></i> AI 비즈니스 전략가 과정</span>
+                            </div>
+                        </div>
+
+                        <!-- Model 3: Emotion AI -->
+                        <div class="program-card" style="border: 2px solid var(--primary-color); box-shadow: 0 8px 24px rgba(122, 31, 31, 0.15);">
+                            <div class="program-icon" style="background: linear-gradient(135deg, #7A1F1F, #A63939);">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="program-badge" style="position: absolute; top: 15px; right: 15px; background: #28a745; color: white; padding: 5px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">
+                                월 $30K~120K
+                            </div>
+                            <h4>Emotion AI Contextual Layer Agency</h4>
+                            <p class="program-subtitle" style="color: var(--primary-color); font-weight: 600; margin-bottom: 10px;">
+                                감정 AI 기반 초개인화
+                            </p>
+                            <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">
+                                실시간 emotion data와 contextual personalization agent 구축
+                            </p>
+                            <ul class="program-features" style="list-style: none; padding: 0; margin: 15px 0; font-size: 0.9rem;">
+                                <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>Hume AI + Claude Projects</li>
+                                <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>e-commerce 6~12곳 대상</li>
+                                <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>프로젝트 $6K~27K + MRR $2.2K~10K</li>
+                            </ul>
+                            <div class="program-meta" style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #e0e0e0;">
+                                <span><i class="fas fa-graduation-cap"></i> AI 마케팅 스페셜리스트 과정</span>
+                            </div>
+                        </div>
+
+                        <!-- Model 4: AR/VR AI Experience -->
+                        <div class="program-card" style="border: 2px solid var(--primary-color); box-shadow: 0 8px 24px rgba(122, 31, 31, 0.15);">
+                            <div class="program-icon" style="background: linear-gradient(135deg, #7A1F1F, #A63939);">
+                                <i class="fas fa-vr-cardboard"></i>
+                            </div>
+                            <div class="program-badge" style="position: absolute; top: 15px; right: 15px; background: #28a745; color: white; padding: 5px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">
+                                월 $32K~130K
+                            </div>
+                            <h4>Immersive AR/VR AI Experience Factory</h4>
+                            <p class="program-subtitle" style="color: var(--primary-color); font-weight: 600; margin-bottom: 10px;">
+                                몰입형 AI 경험 제작소
+                            </p>
+                            <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">
+                                AI가 AR/VR interactive campaign 실시간 생성·배포
+                            </p>
+                            <ul class="program-features" style="list-style: none; padding: 0; margin: 15px 0; font-size: 0.9rem;">
+                                <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>Unity AI + Runway spatial 기술</li>
+                                <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>K-뷰티·패션 DTC 브랜드 5~9곳</li>
+                                <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>프로젝트 $7K~32K + 월 관리 $2.5K~12K</li>
+                            </ul>
+                            <div class="program-meta" style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #e0e0e0;">
+                                <span><i class="fas fa-graduation-cap"></i> AI 콘텐츠 크리에이터 과정</span>
+                            </div>
+                        </div>
+
+                        <!-- Model 5: PETs Privacy -->
+                        <div class="program-card" style="border: 2px solid var(--primary-color); box-shadow: 0 8px 24px rgba(122, 31, 31, 0.15);">
+                            <div class="program-icon" style="background: linear-gradient(135deg, #7A1F1F, #A63939);">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            <div class="program-badge" style="position: absolute; top: 15px; right: 15px; background: #28a745; color: white; padding: 5px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">
+                                월 $24K~98K
+                            </div>
+                            <h4>PETs Privacy-First AI Integration</h4>
+                            <p class="program-subtitle" style="color: var(--primary-color); font-weight: 600; margin-bottom: 10px;">
+                                프라이버시 강화 AI 통합
+                            </p>
+                            <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">
+                                Federated learning과 encryption layer를 AI stack에 내장
+                            </p>
+                            <ul class="program-features" style="list-style: none; padding: 0; margin: 15px 0; font-size: 0.9rem;">
+                                <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>PETs toolkit + Zapier 통합</li>
+                                <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>B2B 10곳 대상 감사·구축</li>
+                                <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>One-time $5.5K~25K + retainer $2K~9K</li>
+                            </ul>
+                            <div class="program-meta" style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #e0e0e0;">
+                                <span><i class="fas fa-graduation-cap"></i> AI 윤리·보안·개인정보 실무 과정</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI 마케팅 모델 CTA -->
+                    <div style="margin-top: 50px; text-align: center; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 50px 30px; border-radius: 20px; color: white; box-shadow: 0 8px 32px rgba(0,0,0,0.2);">
+                        <h3 style="font-size: 2rem; margin-bottom: 15px; color: white;">
+                            🚀 2026 AI 마케팅 비즈니스 시작하기
+                        </h3>
+                        <p style="font-size: 1.1rem; margin-bottom: 30px; opacity: 0.9; max-width: 800px; margin-left: auto; margin-right: auto;">
+                            Multi-Agent Orchestration부터 PETs Privacy까지<br>
+                            <strong style="color: var(--gold);">실전 프로젝트 중심 교육 + 창업·부업·이직 지원</strong>
+                        </p>
+                        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                            <a href="#contact" class="cta-button" style="background: linear-gradient(135deg, #7A1F1F, #A63939); color: white; padding: 18px 40px; border-radius: 10px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 10px; font-size: 1.1rem; box-shadow: 0 4px 20px rgba(122, 31, 31, 0.4);">
+                                <i class="fas fa-rocket"></i> 교육 과정 상담 신청
+                            </a>
+                            <a href="https://www.axinova.news/article/12996?mcode=m824hqn" target="_blank" class="cta-button" style="background: rgba(255,255,255,0.15); color: white; padding: 18px 40px; border-radius: 10px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 10px; font-size: 1.1rem; border: 2px solid rgba(255,255,255,0.3); backdrop-filter: blur(10px);">
+                                <i class="fas fa-newspaper"></i> 상세 기사 보기
+                            </a>
+                        </div>
+                        <p style="margin-top: 25px; font-size: 0.9rem; opacity: 0.8;">
+                            출처: 이노바저널 | AXINOVA AI 교육 전문 평생교육원
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="program-cta" style="margin-top: 40px; text-align: center; background: linear-gradient(135deg, var(--primary-color), #6B1F1F); padding: 40px; border-radius: 15px; color: white;">
+                    <h3 style="margin-bottom: 15px;">국비지원 교육 신청 문의</h3>
+                    <p style="margin-bottom: 25px; opacity: 0.9;">취업준비생·재직자·프리랜서 모두 지원 가능 | 수강료 전액 무료</p>
+                    <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                        <a href="#contact" class="cta-button" style="background: white; color: var(--primary-color); padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-phone"></i> 상담 신청
+                        </a>
+                        <a href="tel:070-8657-1948" class="cta-button" style="background: rgba(255,255,255,0.2); color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 10px; border: 2px solid white;">
+                            <i class="fas fa-phone-alt"></i> 070-8657-1948
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tech Programs -->
+            <div class="tab-content" id="tech">
+                <div class="program-grid">
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4>AI 에이전트 설계 전문가</h4>
+                        <p>자율적으로 계획을 수립하고 도구를 활용하는 지능형 에이전트 설계 및 개발</p>
+                        <div class="program-meta">
+                            <span><i class="fas fa-clock"></i> 12주</span>
+                            <span><i class="fas fa-signal"></i> 고급</span>
+                        </div>
+                    </div>
+
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h4>지능형 자동화 플래너</h4>
+                        <p>RPA와 AI를 결합한 지능형 자동화(IA) 시스템 설계 및 구현</p>
+                        <div class="program-meta">
+                            <span><i class="fas fa-clock"></i> 10주</span>
+                            <span><i class="fas fa-signal"></i> 중급</span>
+                        </div>
+                    </div>
+
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4>LLM 애플리케이션 개발자</h4>
+                        <p>대규모 언어 모델을 활용한 실무 애플리케이션 개발 및 배포</p>
+                        <div class="program-meta">
+                            <span><i class="fas fa-clock"></i> 14주</span>
+                            <span><i class="fas fa-signal"></i> 고급</span>
+                        </div>
+                    </div>
+
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h4>RAG 시스템 전문가</h4>
+                        <p>검색 증강 생성 기술을 활용한 지식 기반 AI 시스템 구축</p>
+                        <div class="program-meta">
+                            <span><i class="fas fa-clock"></i> 8주</span>
+                            <span><i class="fas fa-signal"></i> 중급</span>
+                        </div>
+                    </div>
+
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-edit"></i>
+                        </div>
+                        <h4>프롬프트 엔지니어링 전문가</h4>
+                        <p>효과적인 프롬프트 설계 및 최적화 기법</p>
+                        <div class="program-meta">
+                            <span><i class="fas fa-clock"></i> 6주</span>
+                            <span><i class="fas fa-signal"></i> 초급</span>
+                        </div>
+                    </div>
+
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>AI 보안 및 프라이버시 전문가</h4>
+                        <p>AI 시스템의 보안 취약점 분석 및 대응 전략 수립</p>
+                        <div class="program-meta">
+                            <span><i class="fas fa-clock"></i> 10주</span>
+                            <span><i class="fas fa-signal"></i> 고급</span>
+                        </div>
+                    </div>
+
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <h4>AI 교육 콘텐츠 개발 전문가</h4>
+                        <p>교수설계 이론과 생성형 AI를 결합한 디지털 학습 콘텐츠 기획·제작·평가</p>
+                        <ul class="program-features" style="list-style: none; padding: 0; margin: 15px 0; font-size: 0.9rem;">
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>교수설계 모델(ADDIE/SAM) 적용</li>
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>AI 활용 콘텐츠 자동 생성</li>
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>학습 효과 측정 및 개선</li>
+                            <li><i class="fas fa-check" style="color: var(--primary-color); margin-right: 8px;"></i>LMS 통합 및 배포 전략</li>
+                        </ul>
+                        <div class="program-meta">
+                            <span><i class="fas fa-clock"></i> 12주</span>
+                            <span><i class="fas fa-signal"></i> 중급</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Programs -->
+            <div class="tab-content" id="business">
+                <div class="program-grid">
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>AI 비즈니스 전략가</h4>
+                        <p>AI 기술을 활용한 비즈니스 모델 개발 및 전략 수립</p>
+                        <div class="program-meta">
+                            <span><i class="fas fa-clock"></i> 8주</span>
+                            <span><i class="fas fa-signal"></i> 중급</span>
+                        </div>
+                    </div>
+
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h4>생성형 AI 콘텐츠 크리에이터</h4>
+                        <p>이미지, 텍스트, 비디오 생성 AI를 활용한 콘텐츠 제작</p>
+                        <div class="program-meta">
+                            <span><i class="fas fa-clock"></i> 6주</span>
+                            <span><i class="fas fa-signal"></i> 초급</span>
+                        </div>
+                    </div>
+
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h4>AI 고객경험(CX) 디자이너</h4>
+                        <p>AI 기반 고객 경험 설계 및 최적화</p>
+                        <div class="program-meta">
+                            <span><i class="fas fa-clock"></i> 8주</span>
+                            <span><i class="fas fa-signal"></i> 중급</span>
+                        </div>
+                    </div>
+
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <h4>AI 마케팅 스페셜리스트</h4>
+                        <p>AI 도구를 활용한 마케팅 자동화 및 데이터 분석</p>
+                        <div class="program-meta">
+                            <span><i class="fas fa-clock"></i> 7주</span>
+                            <span><i class="fas fa-signal"></i> 초급</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ethics Programs -->
+            <div class="tab-content" id="ethics">
+                <div class="program-grid">
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h4>AI 윤리 및 거버넌스 전문가</h4>
+                        <p>AI 윤리 원칙, 편향 제거, 책임 있는 AI 개발</p>
+                        <div class="program-meta">
+                            <span><i class="fas fa-clock"></i> 8주</span>
+                            <span><i class="fas fa-signal"></i> 중급</span>
+                        </div>
+                    </div>
+
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <h4>AI 규제 컴플라이언스 전문가</h4>
+                        <p>AI 관련 법규 및 규제 준수 체계 구축</p>
+                        <div class="program-meta">
+                            <span><i class="fas fa-clock"></i> 6주</span>
+                            <span><i class="fas fa-signal"></i> 중급</span>
+                        </div>
+                    </div>
+
+                    <div class="program-card">
+                        <div class="program-icon">
+                            <i class="fas fa-shield-virus"></i>
+                        </div>
+                        <h4>AI 편향성 분석가</h4>
+                        <p>AI 모델의 편향성 탐지 및 완화 기법</p>
+                        <div class="program-meta">
+                            <span><i class="fas fa-clock"></i> 7주</span>
+                            <span><i class="fas fa-signal"></i> 고급</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">FEATURES</span>
+                <h2 class="section-title">AXINOVA만의 차별점</h2>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-number">01</div>
+                    <div class="feature-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>2026 공공 인증 대비</h3>
+                    <p>
+                        정부 주도 공공 AI 자격인증제 시행에 완벽 대비한 커리큘럼.
+                        'AI-TOPCIT' 모델 기반의 체계적인 역량 평가 준비.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-number">02</div>
+                    <div class="feature-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>실무 중심 프로젝트</h3>
+                    <p>
+                        단순 이론 교육이 아닌 실제 기업 프로젝트 기반 학습.
+                        포트폴리오 구축을 통한 즉시 실무 투입 가능한 역량 배양.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-number">03</div>
+                    <div class="feature-icon">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <h3>현장 전문가 강사진</h3>
+                    <p>
+                        AI 산업 최전선에서 활동하는 전문가들로 구성된 강사진.
+                        최신 기술 트렌드와 실무 노하우 직접 전수.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-number">04</div>
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>맞춤형 학습 경로</h3>
+                    <p>
+                        입문자부터 전문가까지 수준별 맞춤 교육.
+                        개인의 목표와 배경에 따른 최적의 학습 로드맵 제공.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-number">05</div>
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>최신 AI 도구 실습</h3>
+                    <p>
+                        GPT-4, Claude, Gemini 등 최신 LLM 플랫폼 실습.
+                        LangChain, AutoGPT 등 프레임워크 활용 역량 강화.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-number">06</div>
+                    <div class="feature-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>취업 및 네트워킹</h3>
+                    <p>
+                        AI 기업 채용 연계 프로그램 및 취업 지원.
+                        동문 네트워크를 통한 지속적인 커리어 개발 지원.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section class="roadmap" id="roadmap">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">LEARNING PATH</span>
+                <h2 class="section-title">학습 로드맵</h2>
+                <p class="section-description">
+                    체계적인 단계별 학습으로 AI 전문가로 성장하세요
+                </p>
+            </div>
+
+            <div class="roadmap-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <span>1</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>기초 단계 (입문)</h3>
+                        <div class="timeline-duration">4-6주</div>
+                        <ul>
+                            <li>AI 기본 개념 및 역사</li>
+                            <li>프롬프트 엔지니어링 기초</li>
+                            <li>생성형 AI 도구 활용</li>
+                            <li>AI 윤리 입문</li>
+                        </ul>
+                        <div class="timeline-badge">입문자 추천</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <span>2</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>응용 단계 (중급)</h3>
+                        <div class="timeline-duration">8-12주</div>
+                        <ul>
+                            <li>LLM 애플리케이션 개발</li>
+                            <li>RAG 시스템 구축</li>
+                            <li>AI 에이전트 기초</li>
+                            <li>비즈니스 응용 사례 분석</li>
+                        </ul>
+                        <div class="timeline-badge">중급자 추천</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <span>3</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>전문 단계 (고급)</h3>
+                        <div class="timeline-duration">12-16주</div>
+                        <ul>
+                            <li>멀티모달 AI 시스템 설계</li>
+                            <li>AI 보안 및 프라이버시</li>
+                            <li>고급 AI 에이전트 개발</li>
+                            <li>AI 거버넌스 및 컴플라이언스</li>
+                        </ul>
+                        <div class="timeline-badge">고급자 추천</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <span>4</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>전문가 단계 (마스터)</h3>
+                        <div class="timeline-duration">16주 이상</div>
+                        <ul>
+                            <li>AGI 네비게이터 통합 과정</li>
+                            <li>실전 프로젝트 수행</li>
+                            <li>2026 공공 인증 준비</li>
+                            <li>AI 전문가 인증 취득</li>
+                        </ul>
+                        <div class="timeline-badge">전문가 과정</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>지금 시작하세요!</h2>
+                <p>AI 전문가로의 여정, AXINOVA 평생교육원과 함께 하세요</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary btn-large">
+                        <span>수강 신청하기</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#programs" class="btn btn-outline btn-large">
+                        <span>프로그램 상세보기</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog" id="blog">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">BLOG</span>
+                <h2 class="section-title">AXINOVA 블로그</h2>
+                <p class="section-description">
+                    AI 교육의 최신 트렌드와 인사이트를 공유합니다
+                </p>
+            </div>
+
+            <!-- Featured Post -->
+            <div class="blog-featured">
+                <article class="featured-blog-card">
+                    <div class="featured-blog-image">
+                        <img src="images/placeholder-hero.svg" alt="2026 AI 자격인증">
+                        <span class="featured-badge">Featured</span>
+                    </div>
+                    <div class="featured-blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">AI 트렌드</span>
+                            <span class="blog-date"><i class="far fa-calendar"></i> 2024.02.10</span>
+                            <span class="blog-read-time"><i class="far fa-clock"></i> 10분 읽기</span>
+                        </div>
+                        <h3>2026 공공 AI 자격인증제, 무엇을 준비해야 하나?</h3>
+                        <p>과학기술정보통신부가 2026년 하반기 시행을 목표로 하는 공공 AI 자격인증제가 AI 교육 시장의 게임 체인저가 될 전망입니다. 현재 난립한 500여 개의 민간 자격증 시장을 재편하고, 진정한 AI 전문가를 양성하기 위한 이 제도에 대해 알아봅니다.</p>
+                        <a href="blog.html" class="btn btn-primary">전체 보기 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Blog Grid -->
+            <div class="blog-grid-section">
+                <div class="blog-posts-grid">
+                    <!-- Blog Post 1 -->
+                    <article class="blog-post-card">
+                        <div class="blog-post-image">
+                            <img src="images/placeholder-1.svg" alt="GPT-4 vs Claude">
+                            <span class="blog-post-category">기술 리뷰</span>
+                        </div>
+                        <div class="blog-post-content">
+                            <div class="blog-meta">
+                                <span class="blog-date"><i class="far fa-calendar"></i> 2024.02.08</span>
+                                <span class="blog-views"><i class="far fa-eye"></i> 1,245</span>
+                            </div>
+                            <h4>GPT-4 vs Claude 3.5: 비즈니스 활용 비교</h4>
+                            <p>최신 LLM 모델들의 성능을 비교하고, 실제 비즈니스 환경에서 어떤 모델을 선택해야 하는지 가이드합니다.</p>
+                            <a href="blog.html" class="read-more-link">더 읽기 <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 2 -->
+                    <article class="blog-post-card">
+                        <div class="blog-post-image">
+                            <img src="images/placeholder-2.svg" alt="프롬프트 엔지니어링">
+                            <span class="blog-post-category">교육 소식</span>
+                        </div>
+                        <div class="blog-post-content">
+                            <div class="blog-meta">
+                                <span class="blog-date"><i class="far fa-calendar"></i> 2024.02.05</span>
+                                <span class="blog-views"><i class="far fa-eye"></i> 2,103</span>
+                            </div>
+                            <h4>프롬프트 엔지니어링 마스터 클래스 후기</h4>
+                            <p>실무에서 바로 활용 가능한 프롬프트 작성 기법과 수강생들의 생생한 후기를 공유합니다.</p>
+                            <a href="blog.html" class="read-more-link">더 읽기 <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 3 -->
+                    <article class="blog-post-card">
+                        <div class="blog-post-image">
+                            <img src="images/placeholder-3.svg" alt="성공 사례">
+                            <span class="blog-post-category">성공 사례</span>
+                        </div>
+                        <div class="blog-post-content">
+                            <div class="blog-meta">
+                                <span class="blog-date"><i class="far fa-calendar"></i> 2024.02.03</span>
+                                <span class="blog-views"><i class="far fa-eye"></i> 1,876</span>
+                            </div>
+                            <h4>비전공자에서 AI 개발자로: 6개월 여정</h4>
+                            <p>문과 출신 비전공자가 AXINOVA 교육 과정을 통해 AI 스타트업 개발자로 취업한 성공 스토리입니다.</p>
+                            <a href="blog.html" class="read-more-link">더 읽기 <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 4 -->
+                    <article class="blog-post-card">
+                        <div class="blog-post-image">
+                            <img src="images/placeholder-4.svg" alt="RAG 시스템">
+                            <span class="blog-post-category">AI 트렌드</span>
+                        </div>
+                        <div class="blog-post-content">
+                            <div class="blog-meta">
+                                <span class="blog-date"><i class="far fa-calendar"></i> 2024.02.01</span>
+                                <span class="blog-views"><i class="far fa-eye"></i> 1,532</span>
+                            </div>
+                            <h4>RAG 시스템 구축: 기업 내부 지식 기반 AI</h4>
+                            <p>검색 증강 생성(RAG) 기술을 활용하여 기업 맞춤형 AI 챗봇을 구축하는 방법을 설명합니다.</p>
+                            <a href="blog.html" class="read-more-link">더 읽기 <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 5 -->
+                    <article class="blog-post-card">
+                        <div class="blog-post-image">
+                            <img src="images/placeholder-5.svg" alt="AI 에이전트">
+                            <span class="blog-post-category">교육 소식</span>
+                        </div>
+                        <div class="blog-post-content">
+                            <div class="blog-meta">
+                                <span class="blog-date"><i class="far fa-calendar"></i> 2024.01.28</span>
+                                <span class="blog-views"><i class="far fa-eye"></i> 1,987</span>
+                            </div>
+                            <h4>AI 에이전트 개발 과정 신규 개설 안내</h4>
+                            <p>자율적으로 작업을 수행하는 AI 에이전트 개발 전문가 양성을 위한 신규 과정이 3월에 오픈됩니다.</p>
+                            <a href="blog.html" class="read-more-link">더 읽기 <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 6 -->
+                    <article class="blog-post-card">
+                        <div class="blog-post-image">
+                            <img src="images/placeholder-6.svg" alt="멀티모달 AI">
+                            <span class="blog-post-category">기술 리뷰</span>
+                        </div>
+                        <div class="blog-post-content">
+                            <div class="blog-meta">
+                                <span class="blog-date"><i class="far fa-calendar"></i> 2024.01.25</span>
+                                <span class="blog-views"><i class="far fa-eye"></i> 2,341</span>
+                            </div>
+                            <h4>멀티모달 AI: GPT-4V와 Gemini Pro</h4>
+                            <p>이미지, 텍스트, 음성을 동시에 처리하는 멀티모달 AI의 현재와 미래를 살펴봅니다.</p>
+                            <a href="blog.html" class="read-more-link">더 읽기 <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- View All Blog Button -->
+                <div class="blog-view-all">
+                    <a href="blog.html" class="btn btn-outline btn-large">
+                        <span>블로그 전체보기</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">CONTACT US</span>
+                <h2 class="section-title">문의하기</h2>
+                <p class="section-description">
+                    AXINOVA 평생교육원에 대해 궁금한 점이 있으신가요?<br>
+                    언제든지 문의해 주세요.
+                </p>
+            </div>
+
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>연락처 정보</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>주소</h4>
+                            <p>충남 천안시 서북구 불당17길 27<br>(그랜드플라자 201호)</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>전화</h4>
+                            <p>070-8657-1948</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>이메일</h4>
+                            <p>info@axinova.ai.kr</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4>운영시간</h4>
+                            <p>평일 09:00 - 18:00<br>주말 및 공휴일 휴무</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">이름 *</label>
+                            <input type="text" id="name" name="name" required placeholder="홍길동">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">이메일 *</label>
+                            <input type="email" id="email" name="email" required placeholder="example@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">연락처</label>
+                            <input type="tel" id="phone" name="phone" placeholder="010-1234-5678">
+                        </div>
+                        <div class="form-group">
+                            <label for="program">관심 프로그램</label>
+                            <select id="program" name="program">
+                                <option value="">선택해주세요</option>
+                                <option value="agi">AGI 네비게이터 통합과정</option>
+                                <option value="agent">AI 에이전트 설계 전문가</option>
+                                <option value="llm">LLM 애플리케이션 개발자</option>
+                                <option value="prompt">프롬프트 엔지니어링</option>
+                                <option value="business">AI 비즈니스 전략가</option>
+                                <option value="other">기타</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">문의내용 *</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="문의하실 내용을 입력해주세요"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <span>문의 보내기</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="AXINOVA" class="footer-logo-img">
+                        <div class="logo-text">
+                            <span class="logo-name">AXINOVA</span>
+                            <span class="logo-subtitle">평생교육원</span>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        AX 시대의 미래를 선도하는 AI 교육 및<br>
+                        AI 에이전시 교육 전문 기관
+                    </p>
+                    <p class="footer-parent-org">
+                        <i class="fas fa-building"></i> 
+                        <a href="https://www.axinova.news" target="_blank" rel="noopener noreferrer" style="color: var(--gold); text-decoration: none;">
+                            이노바저널
+                        </a> 부설 평생교육원
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>빠른 링크</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">소개</a></li>
+                        <li><a href="#programs">교육 프로그램</a></li>
+                        <li><a href="#features">특징</a></li>
+                        <li><a href="#roadmap">로드맵</a></li>
+                        <li><a href="#blog">블로그</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>프로그램</h4>
+                    <ul class="footer-links">
+                        <li><a href="#programs">AGI 네비게이터</a></li>
+                        <li><a href="#programs">기술/개발 과정</a></li>
+                        <li><a href="#programs">비즈니스 과정</a></li>
+                        <li><a href="#programs">윤리/거버넌스</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>문의</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-phone"></i> 070-8657-1948</li>
+                        <li><i class="fas fa-envelope"></i> info@axinova.ai.kr</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 충남 천안시 서북구 불당17길 27(그랜드플라자 201호)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="footer-info">
+                        <p class="footer-copyright">&copy; 2024 AXINOVA 평생교육원. All rights reserved.</p>
+                        <p class="footer-registration">평생교육원 등록번호: 제140호 | 대표: 최득진</p>
+                        <div class="footer-legal-links">
+                            <a href="/policy/terms">이용약관</a>
+                            <span class="divider">|</span>
+                            <a href="/policy/refund">환불규정</a>
+                            <span class="divider">|</span>
+                            <a href="/privacy">개인정보처리방침</a>
+                            <span class="divider">|</span>
+                            <a href="/cookies">쿠키정책</a>
+                        </div>
+                    </div>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <!-- Simple AI Chat Assistant -->
+    <script src="simple-ai-chat.js"></script>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+    </button>
+    
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        const themeIcon = themeToggle.querySelector('i');
+
+        // Check for saved theme preference or default to 'light'
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                themeIcon.className = 'fas fa-sun';
+            } else {
+                themeIcon.className = 'fas fa-moon';
+            }
+        }
+    </script>
+</body>
+</html>
