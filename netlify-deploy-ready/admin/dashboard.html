@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관리자 대시보드 - AXINOVA CMS</title>
+    <link rel="icon" type="image/png" href="../logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin-dashboard.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="../logo.png" alt="AXINOVA Logo" class="sidebar-logo">
+            <h2>AXINOVA CMS</h2>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item active">
+                <i class="fas fa-home"></i>
+                <span>대시보드</span>
+            </a>
+            <a href="content-manager.html" class="nav-item">
+                <i class="fas fa-file-alt"></i>
+                <span>메인 페이지 관리</span>
+            </a>
+            <a href="program-manager.html" class="nav-item">
+                <i class="fas fa-graduation-cap"></i>
+                <span>프로그램 관리</span>
+            </a>
+            <a href="blog-manager.html" class="nav-item">
+                <i class="fas fa-blog"></i>
+                <span>블로그 관리</span>
+            </a>
+            <a href="user-manager.html" class="nav-item">
+                <i class="fas fa-users"></i>
+                <span>회원 관리</span>
+            </a>
+            <a href="media-library.html" class="nav-item">
+                <i class="fas fa-images"></i>
+                <span>미디어 라이브러리</span>
+            </a>
+            <a href="settings.html" class="nav-item">
+                <i class="fas fa-cog"></i>
+                <span>사이트 설정</span>
+            </a>
+            <div class="nav-divider"></div>
+            <a href="../index.html" class="nav-item" target="_blank">
+                <i class="fas fa-external-link-alt"></i>
+                <span>사이트 보기</span>
+            </a>
+            <a href="#" class="nav-item" onclick="handleLogout()">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>로그아웃</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="topbar">
+            <button class="menu-toggle" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <h1 class="page-title">대시보드</h1>
+            <div class="topbar-actions">
+                <div class="user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <span id="adminUsername">관리자</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-container">
+            <!-- Welcome Section -->
+            <section class="welcome-section">
+                <h2>환영합니다! 👋</h2>
+                <p>AXINOVA 평생교육원 CMS에 오신 것을 환영합니다. 여기서 웹사이트의 모든 콘텐츠를 관리할 수 있습니다.</p>
+            </section>
+
+            <!-- Stats Cards -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #e3f2fd;">
+                        <i class="fas fa-file-alt" style="color: #1976d2;"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="totalPages">5</h3>
+                        <p>페이지</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #f3e5f5;">
+                        <i class="fas fa-graduation-cap" style="color: #7b1fa2;"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="totalPrograms">8</h3>
+                        <p>교육 프로그램</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #e8f5e9;">
+                        <i class="fas fa-blog" style="color: #388e3c;"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="totalPosts">12</h3>
+                        <p>블로그 포스트</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #fff3e0;">
+                        <i class="fas fa-users" style="color: #f57c00;"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="totalUsers">156</h3>
+                        <p>회원 수</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Actions -->
+            <section class="section-card">
+                <h3 class="section-title">빠른 작업</h3>
+                <div class="quick-actions-grid">
+                    <a href="content-manager.html" class="quick-action-card">
+                        <i class="fas fa-edit"></i>
+                        <h4>메인 페이지 수정</h4>
+                        <p>히어로, 소개, 특징 등 편집</p>
+                    </a>
+                    <a href="program-manager.html?action=new" class="quick-action-card">
+                        <i class="fas fa-plus-circle"></i>
+                        <h4>프로그램 추가</h4>
+                        <p>새로운 교육 프로그램 등록</p>
+                    </a>
+                    <a href="blog-manager.html?action=new" class="quick-action-card">
+                        <i class="fas fa-pen"></i>
+                        <h4>블로그 작성</h4>
+                        <p>새 블로그 포스트 작성</p>
+                    </a>
+                    <a href="media-library.html" class="quick-action-card">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h4>파일 업로드</h4>
+                        <p>이미지, 문서 등 업로드</p>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Recent Activity -->
+            <section class="section-card">
+                <h3 class="section-title">최근 활동</h3>
+                <div class="activity-list" id="activityList">
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-edit"></i>
+                        </div>
+                        <div class="activity-details">
+                            <p class="activity-text"><strong>메인 페이지</strong>가 수정되었습니다</p>
+                            <span class="activity-time">2시간 전</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="activity-details">
+                            <p class="activity-text">새 프로그램 <strong>"AGI Navigator 과정"</strong>이 추가되었습니다</p>
+                            <span class="activity-time">5시간 전</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-blog"></i>
+                        </div>
+                        <div class="activity-details">
+                            <p class="activity-text">블로그 포스트 <strong>"AI 교육의 미래"</strong>가 발행되었습니다</p>
+                            <span class="activity-time">1일 전</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- System Info -->
+            <section class="section-card">
+                <h3 class="section-title">시스템 정보</h3>
+                <div class="system-info-grid">
+                    <div class="info-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <div>
+                            <p class="info-label">마지막 업데이트</p>
+                            <p class="info-value" id="lastUpdate">2026-02-18</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <p class="info-label">시스템 시간</p>
+                            <p class="info-value" id="systemTime">--:--</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <p class="info-label">시스템 상태</p>
+                            <p class="info-value status-ok">정상 운영</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/admin-dashboard.js"></script>
+    <script src="js/admin-auth.js"></script>
+</body>
+</html>
